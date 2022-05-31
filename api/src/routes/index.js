@@ -10,7 +10,7 @@ const routerdogui = require('./routeDog');
 // Ejemplo: router.use('/auth', authRouter);
 
 //Routes
-router.use('/', dogs);
+router.use('/', dogs); 
 router.use('/', temperaments);
 router.use('/', routerdogui)
 

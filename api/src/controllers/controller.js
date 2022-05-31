@@ -42,6 +42,6 @@ const getAllDogs = async () => { //concatena los datos de la API y DB
 
     let dataTotal = dataApi.concat(dataDb)
     return dataTotal
-}
+}  
 
 module.exports = {getAllDogs};

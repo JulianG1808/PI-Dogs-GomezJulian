@@ -9,4 +9,4 @@ export default function Card ({ name, image, temperaments, weightMin, weightMax}
             <img src={image} alt='img not found' width='250px' height='250px'/>
         </div>
     )
-}
+} 

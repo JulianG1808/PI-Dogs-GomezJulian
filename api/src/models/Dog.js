@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    weightMax:{
+    weightMax:{ 
       type: DataTypes.STRING,
       allowNull: false
     },

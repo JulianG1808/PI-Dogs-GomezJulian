@@ -25,7 +25,7 @@ function rootReducer(state= initialState, action) {
                 temperaments: action.payload
             }
         case 'GET_DETAIL':
-            return{
+            return{ 
                 ...state,
                 detail: action.payload
             }

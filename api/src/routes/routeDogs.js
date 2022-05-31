@@ -24,7 +24,7 @@ router.get('/dogs', async(req, res) => {
         else { //si no hay query
             res.status(200).send(allDogs)
         }
-    } catch (error) {
+    } catch (error) { 
         res.status(404).send(error)
     }
 })

@@ -102,7 +102,7 @@ export default function Home (){
             <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} />
             <SearchBar/>
             <div>
-                {
+                { 
                     currentDogs?.map((e) => {
                         return (
                             <div key={e.id}>

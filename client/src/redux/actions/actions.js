@@ -67,7 +67,7 @@ export function postDog(payload){
         const res = await axios.post('http://localhost:3001/dog', payload)
         return res
     }
-}
+} 
 
 export function filterByTemperaments(temp){
     return{

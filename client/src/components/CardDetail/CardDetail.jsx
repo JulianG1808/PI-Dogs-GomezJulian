@@ -17,7 +17,7 @@ export default function CardDetail(props){
     return (
         <div>
             <Link to='/home'><button>Volver al inicio</button></Link>
-            {dog.length > 0 ? 
+            {dog.length > 0 ?  
                 <div>
                     <h1>{dog[0].name}</h1>
                     <img src={dog[0].image} alt='img not found' width='250px' height='250px'/>

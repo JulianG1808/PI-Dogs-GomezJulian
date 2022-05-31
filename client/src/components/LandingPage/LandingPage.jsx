@@ -8,6 +8,6 @@ export default function LandingPage() {
             <Link to='/home'>
                 <button>Home</button>
             </Link>
-        </div>
+        </div> 
     )
 }

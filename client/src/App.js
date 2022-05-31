@@ -13,7 +13,7 @@ function App() {
           <Route exact path='/' component={LandingPage}/>
           <Route exact path='/home' component={Home}/>
           <Route path='/dog' component={CreateDog}/>
-          <Route path='/home/:id' component={CardDetail}/>
+          <Route path='/home/:id' component={CardDetail}/> 
         </Switch>
       </div>
   );

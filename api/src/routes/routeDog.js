@@ -15,7 +15,7 @@ router.post('/dog', async (req, res) => {
             lifeSpan,
             image: image,
             createdInDb: true
-        })
+        }) 
     
         let temperamentDb = await Temperament.findAll({
             where: { name: temperament }

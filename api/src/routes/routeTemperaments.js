@@ -48,7 +48,7 @@ router.get('/temperaments', async (req, res) => {
         eachTemperament.forEach(el => {
             Temperament.findOrCreate({
                 where: {name: el}
-            })
+            }) 
         })
 
         eachTemperament = await Temperament.findAll()
