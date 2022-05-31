@@ -4,18 +4,17 @@ const { Dog, Temperament } = require('../db.js');
 
 //-----------------------------------------RoutesDog-----------------------------------------------
 router.post('/dog', async (req, res) => {
-    const { name, heightMin, heightMax, weightMin, weightMax, ageMin, ageMax, image, createdInDb, temperament } = req.body
+    const { name, heightMin, heightMax, weightMin, weightMax, lifeSpan, image, temperament } = req.body
     try {
         let dogCreated = await Dog.create ({
             name, 
-            heightMin, // + ' cm',
-            heightMax, // heightMax + ' cm', 
-            weightMin, //weightMin + ' kg', 
-            weightMax, //weightMax + ' kg', 
-            ageMin, //ageMin + ' years', 
-            ageMax, //ageMax + ' years', 
-            image: image, 
-            createdInDb: true,
+            heightMin,
+            heightMax,
+            weightMin,
+            weightMax,
+            lifeSpan,
+            image: image,
+            createdInDb: true
         })
     
         let temperamentDb = await Temperament.findAll({

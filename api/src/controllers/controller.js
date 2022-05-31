@@ -12,28 +12,12 @@ const getDogsApi = async () => { //traemos datos de la API
         return {
             id: e.id,
             name: e.name,
-            weight: e.weight.metric,
-            temperament: e.temperament ? e.temperament : null,
-            image: e.image.url,
-        }
-    })
-    return dataApi
-}
-
-const getDetailDogsApi = async () => { //traemos datos de la API
-    const urlApi = await axios.get(`https://api.thedogapi.com/v1/breeds?${API_KEY}`)
-    const dataApi = await urlApi.data.map(e => {
-        return {
-            id: e.id,
-            name: e.name,
-            height: e.height.metric,
-            weight: e.weight.metric,
-            life_span: e.life_span,
-            // weightMin: parseInt(e.weight.metric.slice(0, 2)),
-            // weightMax: parseInt(e.weight.metric.slice(4)),
-            // heightMin: parseInt(e.height.metric.slice(0, 2)),
-            // heightMax: parseInt(e.height.metric.slice(4)),
-            temperament: e.temperament ? e.temperament : null,
+            lifeSpan: e.life_span,
+            weightMin: parseInt(e.weight.metric.slice(0, 2)),
+            weightMax: parseInt(e.weight.metric.slice(4)),
+            heightMin: parseInt(e.height.metric.slice(0, 2)),
+            heightMax: parseInt(e.height.metric.slice(4)),
+            temperaments: e.temperament ? e.temperament : null,
             image: e.image.url,
         }
     })
@@ -53,19 +37,11 @@ const getDogsDb = async () => { //traemos datos de la base de datos
 }
 
 const getAllDogs = async () => { //concatena los datos de la API y DB
-    let DataApi = await getDogsApi()
+    let dataApi = await getDogsApi()
     let dataDb = await getDogsDb()
 
-    let dataTotal = DataApi.concat(dataDb)
+    let dataTotal = dataApi.concat(dataDb)
     return dataTotal
 }
 
-const getDetailAllDogs = async () => { //concatena los datos de la API y DB
-    let DataApi = await getDetailDogsApi()
-    let dataDb = await getDogsDb()
-
-    let dataTotal = DataApi.concat(dataDb)
-    return dataTotal
-}
-
-module.exports = {getAllDogs, getDetailAllDogs};
+module.exports = {getAllDogs};

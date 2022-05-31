@@ -7,7 +7,7 @@ const router = express.Router();
 //const {Dog, Temperament} = require('../db.js')
 
 //importamos los controllers
-const {getAllDogs, getDetailAllDogs} = require('../controllers/controller.js')
+const {getAllDogs} = require('../controllers/controller.js')
 
 //---------------------------------------RoutesDogs-----------------------------------------------
 //route para /dogs y /dogs?name=
@@ -33,7 +33,7 @@ router.get('/dogs/:idRaza', async(req, res) => {
     const {idRaza} = req.params
     
     try {
-        let allDogs = await getDetailAllDogs()
+        let allDogs = await getAllDogs()
         if(idRaza) {
             let dog = await allDogs.filter(e => e.id == idRaza)
             dog.length ? 
