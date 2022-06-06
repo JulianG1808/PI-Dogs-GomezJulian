@@ -6,8 +6,9 @@ describe('Dog model', () => {
     .catch((err) => {
       console.error('Unable to connect to the database:', err);
     }));
-  describe('Validators', () => {
-    beforeEach(() => Dog.sync({ force: true }));
+
+describe('Validators', () => {
+  beforeEach(() => Dog.sync({ force: true }));
     describe('name', () => {
       it('should throw an error if name is null', (done) => {
         Dog.create({})
@@ -16,6 +17,11 @@ describe('Dog model', () => {
       });
       it('should work when its a valid name', () => {
         Dog.create({ name: 'Pug' });
+      });
+      it('should throw an error if weightMin is null', (done) => {
+        Dog.create({})
+          .then(() => done(new Error('It requires a valid weightMin')))
+          .catch(() => done());
       });
     });
   });

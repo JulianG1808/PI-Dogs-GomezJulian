@@ -16,7 +16,7 @@ router.get('/dogs', async(req, res) => {
     try {
         let allDogs = await getAllDogs()
         if(name) { //si hay query
-            let dogName = await allDogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase()))
+            let dogName = await allDogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase())) // or ===
             dogName.length ? 
             res.status(200).send(dogName) :
             res.status(404).send(`No se ha encontrado la raza de perro ${name}`)
@@ -35,7 +35,7 @@ router.get('/dogs/:idRaza', async(req, res) => {
     try {
         let allDogs = await getAllDogs()
         if(idRaza) {
-            let dog = await allDogs.filter(e => e.id == idRaza)
+            let dog = await allDogs.filter(dog => dog.id == idRaza)
             dog.length ? 
             res.status(200).send(dog) : 
             res.status(404).send(`No se ha encontrado la raza con el id ${idRaza}`)
