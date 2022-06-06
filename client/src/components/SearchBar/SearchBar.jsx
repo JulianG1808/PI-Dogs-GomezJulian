@@ -1,8 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
+//import actions
 import { getDog } from "../../redux/actions/actions";
 
+//import css
+import './SearchBar.css'
+
+//-------------------------------------------------------------------------------------------------------------
 export default function SearchBar(){
 //-----------------------------------------------Conexiones----------------------------------------------------
     const dispatch = useDispatch()
@@ -24,7 +30,7 @@ export default function SearchBar(){
 
 //------------------------------------------------Render-------------------------------------------------------
     return(
-        <div>
+        <div className="conteinerSearch">
             <input type='text' placeholder='Buscar raza...' onChange={(e) => handleInputName(e)} value={name} onKeyPress={e => e.key === 'Enter' && handleSubmit(e)}/>
             <button type='submit' onClick={(e) => handleSubmit(e)}>Buscar</button>
         </div>

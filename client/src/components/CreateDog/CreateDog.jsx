@@ -2,7 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from 'react-router-dom';
+
+//import actions
 import { postDog, getTemperaments } from "../../redux/actions/actions";
+
+//import css
+import './CreateDog.css'
 
 //------------------------------------------Formulario controlado----------------------------------------------------------
 function formControl(input){
@@ -16,7 +21,6 @@ function formControl(input){
     //altura maxima
     else if(!input.heightMax){check.heightMax = 'Deberia tener una altura maxima'}
     else if(isNaN(parseInt(input.heightMax))){check.heightMax = 'La altura maxima deberia ser un numero'}
-    //else if(parseInt(input.heightMax) > parseInt(input.heightMin)) {check.heightMax = 'La altura maxima deberia ser mayor a la altura minima'}
     //peso minimo
     else if(!input.weightMin){check.weightMin = 'Deberia tener un peso minimo'}
     else if(isNaN(parseInt(input.weightMin))){check.weightMin = 'El peso minimo deberia ser un numero'}
@@ -24,20 +28,20 @@ function formControl(input){
     //peso maximo
     else if(!input.weightMax){check.weightMax = 'Deberia tener un peso maximo'}
     else if(isNaN(parseInt(input.weightMax))){check.weightMax = 'El peso maximo deberia ser un numero'}
-    //else if(parseInt(input.weightMax) > parseInt(input.weightMin)) {check.weightMax = 'el peso maximo deberia ser mayor a el peso minimo'}
     //años de vida
     else if(isNaN(parseInt(input.lifeSpan))){check.lifeSpan = 'Los años de vida deben ser numeros'}
 
     return check;
 }
 
+//--------------------------------------------Function Default------------------------------------------------
 export default function CreateDog(){
 //-----------------------------------------------Conexiones---------------------------------------------------
     const dispatch = useDispatch();
     const history = useHistory();
     const allTemperaments = useSelector((state) => state.temperaments);
 
-//-----------------------------------------------Estados------------------------------------------------------
+//------------------------------------------------Estados------------------------------------------------------
     const [input, setInput] = useState({
         name: '',
         heightMin: '',
@@ -46,7 +50,7 @@ export default function CreateDog(){
         weightMax: '',
         lifeSpan: '',
         image: '',
-        temperaments: []
+        temperament: []
     })
 
     const [check, setCheck] = useState({})
@@ -60,7 +64,7 @@ export default function CreateDog(){
     function handleChange(e){
         setInput({
             ...input,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         })
 
         setCheck(formControl({
@@ -70,10 +74,10 @@ export default function CreateDog(){
     }
 
     function handleSelect(e){
-        if(!input.temperaments.includes(e.target.value)){
+        if(!input.temperament.includes(e.target.value)){
             setInput({
                 ...input,
-                temperaments: [...input.temperaments, e.target.value]
+                temperament: [...input.temperament, e.target.value]
             })
         }
     }
@@ -81,13 +85,13 @@ export default function CreateDog(){
     function handleDelete(tempDel){
         setInput({
             ...input,
-            temperaments: input.temperaments.filter((temp) => temp !== tempDel)
+            temperament: input.temperament.filter((temp) => temp !== tempDel)
         })
     }
     
     function handleSubmit(e){
         e.preventDefault();
-        if(!check.name && !check.heightMin && !check.heightMax && !check.weightMin && !check.weightMax && !check.lifeSpan) {
+        if(!check.name && !check.heightMin && !check.heightMax && !check.weightMin && !check.weightMax) {
             dispatch(postDog(input))
             alert('Raza creada')
             setInput({
@@ -98,94 +102,80 @@ export default function CreateDog(){
                 weightMax: '',
                 lifeSpan: '',
                 image: '',
-                temperaments: []
+                temperament: []
             })
+            history.push('/home')
         }
         else {
             alert('Faltan datos para poder crear el perro')
         }
-        history.push('/home')
     }
 
 //------------------------------------------------Render-------------------------------------------------------
     return( 
-        <div>
-            
+        <div className="conteinerAllCreateDog">
+            <form className="conteinerForm" onSubmit={e => handleSubmit(e)}>
             <h1>Crea tu propia raza de perro</h1>
-            <form onSubmit={e => handleSubmit(e)}>
-                <div>
-                    <label>Nombre: </label>
-                    <input type='text' name='name' value={input.name} onChange={e => handleChange(e)}/>
-                    {check.name && (
-                    <p>{check.name}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Altura minima: </label>
-                    <input type='text' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)}/>
-                    {check.heightMin && (
-                    <p>{check.heightMin}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Altura maxima: </label>
-                    <input type='text' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)}/>
-                    {check.heightMax && (
-                    <p>{check.heightMax}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Peso minimo: </label>
-                    <input type='text' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)}/>
-                    {check.weightMin && (
-                    <p>{check.weightMin}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Peso maximo: </label>
-                    <input type='text' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)}/>
-                    {check.weightMax && (
-                    <p>{check.weightMax}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Años de vida estimados: </label>
-                    <input type='text' name='lifeSpan' value={input.lifeSpan} onChange={e => handleChange(e)}/>
-                </div>
-                <div>
-                    <label>Imagen: </label>
-                    <input type='text' name='image' value={input.image} onChange={e => handleChange(e)}/>
-                </div>
-                <div>
-                <select name='temperaments' onChange={(e) => handleSelect(e)}>
-                    <option value='selected'>Temperaments</option>
-                    {allTemperaments?.map(e => {
-                                return (
-                                    <option key={e.id} value={e.name}>
-                                        {e.name}
-                                    </option>
-                                )
-                            })}
-                </select>
-                {input.temperaments.map(e => (
-                    <ul>
+                <section className="conteinerInputs">
+                        <input type='text' name='name' value={input.name} onChange={e => handleChange(e)} placeholder='Ingrese nombre'/>
+                        {check.name && (
+                        <p className="errors">{check.name}</p>
+                        )}
+                        <input type='text' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)} placeholder='Ingrese altura minima'/>
+                        {check.heightMin && (
+                            <p className="errors">{check.heightMin}</p>
+                            )}
+                        <input type='text' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)} placeholder='Ingrese altura maxima'/>
+                        {check.heightMax && (
+                            <p className="errors">{check.heightMax}</p>
+                            )}
+                        <input type='text' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)} placeholder='Ingrese peso minimo'/>
+                        {check.weightMin && (
+                            <p className="errors">{check.weightMin}</p>
+                            )}
+                        <input type='text' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)} placeholder='Ingrese peso maximo'/>
+                        {check.weightMax && (
+                            <p className="errors">{check.weightMax}</p>
+                            )}
+                        <input type='text' name='lifeSpan' value={input.lifeSpan} onChange={e => handleChange(e) } placeholder='Ingrese años de vida estimados'/>
+                        {check.lifeSpan && (
+                            <p className="errors">{check.lifeSpan}</p>
+                            )}
+                        <input type='text' name='image' value={input.image} onChange={e => handleChange(e)} placeholder='Ingrese url de imagen'/>
+                </section>
+                <section>
+                    <select className="select" name='temperaments' onChange={(e) => handleSelect(e)}>
+                        <option value='selected'>Temperaments</option>
+                        {allTemperaments?.sort(function (a, b) {
+                                if (a.name < b.name) return -1;
+                                if (a.name > b.name) return 1;
+                                return 0;
+                            }).map(temp => {
+                                    return (
+                                        <option key={temp.id} value={temp.name}>{temp.name}</option>
+                                    )
+                                })}
+                    </select>
+                </section>
+                <section className="conteinerTemps">
+                {input.temperament.map(e => (
+                    <ul className="tempsList">
                         <li>
-                            <p>{e}</p>
-                            <button onClick={() => handleDelete(e)}> X </button>
+                            <p>{e}<button type='reset' onClick={() => handleDelete(e)}> X </button></p>
                         </li>
                     </ul>
                 ))}
-                </div>
-                <div>
-                <button type='submit'>
+                </section>
+                <section className="conteinerBtnForm">
+                    <button type='submit' id='btnSubmit'>
                     Crear raza de perro
-                </button>
-                <Link to='/home'>
-                    <button>
-                        Cancelar
                     </button>
-                </Link>
-                </div>
+                    <Link to='/home'>
+                        <button id='btnCancel'>
+                            Cancelar
+                        </button>
+                    </Link>
+                </section>
             </form>
         </div>
     )

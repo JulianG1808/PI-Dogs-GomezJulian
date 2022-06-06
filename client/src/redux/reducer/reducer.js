@@ -35,7 +35,7 @@ function rootReducer(state= initialState, action) {
             }
         case 'FILTER_TEMPERAMENTS':
             const filterTemp = action.payload === 'all' ? state.backupDogs : 
-            state.backupDogs.filter((e) => e.temperaments?.includes(action.payload))
+            state.backupDogs.filter((dog) => dog.temperaments?.includes(action.payload))
 
             return {
                 ...state,
@@ -44,8 +44,8 @@ function rootReducer(state= initialState, action) {
         case 'FILTER_EXISTENCE':
             const allDogs = state.backupDogs
             const filterExist = action.payload === 'all' ? allDogs : 
-            action.payload === 'created' ? allDogs.filter(e => e.createdInDb) :
-            allDogs.filter(e => !e.createdInDb)
+            action.payload === 'created' ? allDogs.filter(dog => dog.createdInDb) :
+            allDogs.filter(dog => !dog.createdInDb)
 
             return {
                 ...state,
@@ -72,7 +72,7 @@ function rootReducer(state= initialState, action) {
                     }
                     return 0
                 }) :
-                action.payload === 'high' ?
+                action.payload === 'weightAsc' ?
                 state.dogs.sort(function (a, b){
                     const PromA = (parseInt(a.weightMin) + parseInt(a.weightMax)) / 2
                     const PromB = (parseInt(b.weightMin) + parseInt(b.weightMax)) / 2

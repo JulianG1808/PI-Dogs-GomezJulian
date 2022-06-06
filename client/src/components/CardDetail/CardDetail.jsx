@@ -1,48 +1,48 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
+//import actions
 import { getDetail } from "../../redux/actions/actions";
 
-export default function CardDetail(props){
+//import css
+import './CardDetail.css'
+
+//-------------------------------------------------------------------------------------------------------------
+export default function CardDetail(){
+//-----------------------------------------------Conexiones----------------------------------------------------
     const dispatch = useDispatch()
+    const { id } = useParams()
     const dog = useSelector(state => state.detail)
 
-    const id = props.match.params.id
-
+//-----------------------------------------------didMount------------------------------------------------------
     useEffect(() => {
         dispatch(getDetail(id))
     },[dispatch, id])
-
+    
+//------------------------------------------------Render-------------------------------------------------------
     return (
-        <div>
-            <Link to='/home'><button>Volver al inicio</button></Link>
-            {dog.length > 0 ?  
-                <div>
+        <div className="conteinerDog">
+            <Link to='/home'><button className="btnHome">Volver al inicio</button></Link>
+            {dog.length ?  
+                <div className="Dog">
                     <h1>{dog[0].name}</h1>
-                    <img src={dog[0].image} alt='img not found' width='250px' height='250px'/>
-                    <div>
+                    <img src={dog[0].image} alt='img not found' width='400px' height='400px'/>
+                        <h3>Altura: </h3>
+                        <p>{dog[0].heightMin} - {dog[0].heightMax} cm</p>
+                        <h3>Peso: </h3>
+                        <p>{dog[0].weightMin} - {dog[0].weightMax} kg</p>
+                        <h3>Años de vida estimados: </h3>
+                        <p>{dog[0].lifeSpan} años</p>
                         <h3>Temperamentos: </h3>
                         <p>{
                         !dog[0].createdInDb ?
                                             dog[0].temperaments :
-                                            dog[0].temperaments.map(e => e.name)}</p>
-                    </div>
-                    <div>
-                        <h3>Altura: </h3>
-                        <p>{dog[0].heightMin} - {dog[0].heightMax}</p>
-                    </div>
-                    <div>
-                        <h3>Peso: </h3>
-                        <p>{dog[0].weightMin} - {dog[0].weightMax}</p>
-                    </div>
-                    <div>
-                        <h3>Años de vida estimados: </h3>
-                        <p>{dog[0].lifeSpan}</p>
-                    </div>
+                                            dog[0].temperaments.map(e => e.name).join(', ')}</p>
                 </div> :
-                <h1>Cargando el perro...</h1>
-            }  
+                <h1 id='loading'>Cargando el perro...</h1>
+            }
         </div>
     )
 }

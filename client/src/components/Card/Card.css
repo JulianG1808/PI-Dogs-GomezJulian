@@ -1,0 +1,27 @@
+.container {
+    width: 400px;
+    margin: 10px 10px;
+}
+
+section article {
+    transition: all 0.3s ease;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin: 5px 0;
+    height: 500px;
+}
+
+section article:hover {
+    box-shadow: 0 1rem 1.5rem rgba(0,0,0, 0.5);
+    cursor: pointer;
+}
+
+section article h2, section article h3, section article p {
+    text-align: center;
+    padding: 1px 3px;
+}
+
+#loading {
+    line-height: 200px;
+}

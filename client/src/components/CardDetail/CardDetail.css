@@ -1,0 +1,35 @@
+.conteinerDog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnHome{
+    transition: all 0.3s ease;
+    background-color: antiquewhite;
+    color: brown;
+    border: 1px brown solid;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+}
+
+.btnHome:hover{
+    background-color: brown;
+    color: antiquewhite;
+    border-color: antiquewhite;
+    cursor: pointer;
+}
+
+.Dog{
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 5px 0;
+    width: 400px;
+}
+
+.Dog h1, .Dog h3, .Dog p{
+    text-align: center;
+    padding: 1px 3px;
+}

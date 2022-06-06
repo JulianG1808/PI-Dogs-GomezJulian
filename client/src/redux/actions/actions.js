@@ -64,8 +64,12 @@ export function getDetail(id){
 
 export function postDog(payload){
     return async function(dispatch){
-        const res = await axios.post('http://localhost:3001/dog', payload)
-        return res
+        try {
+            const res = await axios.post('http://localhost:3001/dog', payload)
+            return res
+        } catch (error) {
+            console.log(error)
+        }
     }
 } 
 

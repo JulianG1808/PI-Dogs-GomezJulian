@@ -1,0 +1,72 @@
+html body{
+    padding: 0;
+    margin: 0;
+    background-image: url(../../images/HOME.jpg);
+    background-attachment: fixed;
+    overflow-x:hidden;
+    font-family: 'Libre Franklin', sans-serif, arial;
+}
+
+.cardConteiner{
+    background-color: coral;
+    width: 90%;
+    height: 1050px;
+    padding: 10px;
+    margin: 0 4%;
+    background-attachment: fixed;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+.conteinerNAV{
+    display: flex;
+    align-content: center;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.conteinerNAV button{
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    border: 5px brown;
+    color:brown;
+    background-color: antiquewhite;
+    width: 150px;
+    height: 35px;
+    margin: 5px;
+}
+
+.conteinerNAV button:hover{
+    border-radius: 5px;
+    border-color: antiquewhite;
+    color:antiquewhite;
+    background-color: brown;
+    cursor: pointer;
+}
+
+.conteinerFilter{
+    margin: 5px;
+}
+
+.conteinerFilter select{
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    margin: 0 5px;
+    background-color: whitesmoke;
+}
+
+.conteinerFilter select option{
+    transition: all 0.3s ease;
+    background-color: whitesmoke;
+}
+
+.conteinerFilter select:hover{
+    cursor: pointer;
+    background-color: white;
+}

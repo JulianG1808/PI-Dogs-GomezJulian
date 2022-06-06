@@ -11,25 +11,17 @@ import Card from '../Card/Card.jsx'
 import Paginated from "../Paginated/Paginated.jsx";
 import SearchBar from "../SearchBar/SearchBar";
 
+//import css
+import './Home.css'
+import '../Card/Card.css'
+import '../Paginated/Paginated.css'
 
+//-------------------------------------------------------------------------------------------------------------
 export default function Home (){
 //-----------------------------------------------Conexiones----------------------------------------------------
     const dispatch = useDispatch();
     const allDogs = useSelector((state) => state.dogs);
     const allTemperaments = useSelector((state) => state.temperaments)
-
-//-----------------------------------------------Paginado------------------------------------------------------
-    const [currentPage, setCurrentPage] = useState(1);
-    const [dogsPerPage, /* setDogsPerPage */] = useState(8);
-    const lastDogPerPage = currentPage * dogsPerPage;
-    const firstDogPerPage = lastDogPerPage - dogsPerPage;
-    const currentDogs = allDogs.slice(firstDogPerPage, lastDogPerPage);
-    
-    const paginated = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    }
-
-    const [/* sort */, setSort] = useState('')
 
 //-----------------------------------------------didMount------------------------------------------------------
     useEffect(() => {
@@ -37,18 +29,23 @@ export default function Home (){
         dispatch(getTemperaments())
     },[dispatch])
 
+//-----------------------------------------------Paginado------------------------------------------------------
+const [currentPage, setCurrentPage] = useState(1);
+const [dogsPerPage, /* setDogsPerPage */] = useState(8);
+const [/* sort */, setSort] = useState('')
+
+const indexLastDogPerPage = currentPage * dogsPerPage;
+const indexFirstDogPerPage = indexLastDogPerPage - dogsPerPage;
+const currentDogs = allDogs.slice(indexFirstDogPerPage, indexLastDogPerPage);
+
+const paginated = (pageNumber) => {
+    setCurrentPage(pageNumber);
+}
+
 //-----------------------------------------Handler Functions---------------------------------------------------
     function handleClick(e){
         e.preventDefault()
         dispatch(getAllDogs())
-    }
-
-    function handleFilterTemp(e){
-        dispatch(filterByTemperaments(e.target.value)) 
-    }
-
-    function handleFilterExist(e){
-        dispatch(filterByExistence(e.target.value))
     }
 
     function handleSortBy(e){
@@ -58,6 +55,15 @@ export default function Home (){
         setSort(e.target.value)
     }
 
+    function handleFilterTemp(e){
+        dispatch(filterByTemperaments(e.target.value))
+    }
+
+    function handleFilterExist(e){
+        dispatch(filterByExistence(e.target.value))
+    }
+
+
     // function handleSortWeight(e){
     //     e.preventDefault()
     //     dispatch(sortByWeight(e.target.value))
@@ -66,33 +72,39 @@ export default function Home (){
     // }
 //------------------------------------------------Render-------------------------------------------------------
     return (
-        <div>
-            <Link to = '/dog'>Crear raza de perro</Link>
-            <h1>PERROS</h1>
+        <div className="backgroundHOME">
+            <div className="conteinerNAV">
+            <Link to = '/dog'><button>Crear raza de perro</button></Link>
             <button onClick={e => {handleClick(e)}}>Recargar perros</button>
-            <div>
-                {/* <label for='sortBy'>Ordenar alfabeticamente</label> */}
+            <SearchBar/>
+            </div>
+            <div className="conteinerFilter">
+                <label for='sortBy' className="labelFilter">Ordenar por: </label>
                 <select name='sortBy' onChange={(e) => handleSortBy(e)}>
                     <option value='aToZ'>A - Z</option>
                     <option value='zToA'>Z - A</option>
-                    <option value='high'>Liviano a Pesado</option>
-                    <option value='light'>Pesado a Liviano</option>
+                    <option value='weightAsc'>Liviano a Pesado</option>
+                    <option value='weightDesc'>Pesado a Liviano</option>
                 </select>
                 {/* <label for='weight'>Ordenar por peso</label> */}
                 {/* <select name='weight' onChange={(e) => handleSortWeight(e)}>
                     <option value='asc'>Liviano a Pesado</option>
                     <option value='desc'>Pesado a Liviano</option>
                 </select> */}
-                {/* <label for='temperaments'>Filtrar por temperamentos</label> */}
+                <label for='temperaments' className="labelFilter">Filtrar por temperamentos: </label>
                 <select name='temperaments' onChange={(e) => handleFilterTemp(e)}>
                     <option value='all'>Todos</option>
-                    {allTemperaments?.map(e => {
+                    {allTemperaments?.sort(function (a, b) {
+                            if (a.name < b.name) return -1;
+                            if (a.name > b.name) return 1;
+                            return 0;
+                        }).map(temp => {
                                 return (
-                                    <option key={e.id} value={e.name}>{e.name}</option>
+                                    <option key={temp.id} value={temp.name}>{temp.name}</option>
                                 )
                             })}
                 </select>
-                {/* <label for='existence'>Filtrar por existencias</label> */}
+                <label for='existence' className="labelFilter">Filtrar por existencias: </label>
                 <select name= 'existence' onChange={(e) => handleFilterExist(e)}>
                     <option value='all'>Todos</option>
                     <option value='existent'>Razas Existentes</option>
@@ -100,21 +112,20 @@ export default function Home (){
                 </select>
             </div>
             <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} />
-            <SearchBar/>
-            <div>
+            <div className="cardConteiner">
                 { 
                     currentDogs?.map((e) => {
                         return (
                             <div key={e.id}>
-                                {/* <Link to={`/home/${e.id}`}> */}
+                                <Link to={`/home/${e.id}`} style={{ textDecoration: 'none', color: 'black'}}>
                                     <Card 
                                     image={e.image}
-                                    name={<Link to={`/home/${e.id}`}>{e.name}</Link>}
+                                    name={e.name}
                                     temperaments={e.temperaments}
                                     weightMin={e.weightMin}
                                     weightMax={e.weightMax}
                                     />
-                                {/* </Link> */}
+                                </Link>
                             </div>
                         )
                     })
