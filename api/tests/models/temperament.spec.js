@@ -6,7 +6,7 @@ describe('Temperament model', () => {
         .catch((err) => {
             console.error('Unable to connect to the database:', err);
     }));
-
+  
 describe('Validators', () => {
     beforeEach(() => Temperament.sync({ force: true }));
         describe('name', () => {

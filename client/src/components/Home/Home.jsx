@@ -23,7 +23,7 @@ export default function Home (){
     const allDogs = useSelector((state) => state.dogs);
     const allTemperaments = useSelector((state) => state.temperaments)
 
-//-----------------------------------------------didMount------------------------------------------------------
+//-------------------------------------componentDidMount - didUpdate--------------------------------------------
     useEffect(() => {
         dispatch(getAllDogs())
         dispatch(getTemperaments())
