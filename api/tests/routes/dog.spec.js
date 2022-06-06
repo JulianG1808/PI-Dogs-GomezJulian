@@ -13,9 +13,19 @@ describe('Dog routes', () => {
   }));
   beforeEach(() => Dog.sync({ force: true })
     .then(() => Dog.create({"name": "Caniche","heightMin": 20,"heightMax": 50,"weightMin": 20,"weightMax": 32,})));
-  describe('GET /dogs', () => {
+
+describe('GET /dogs', () => {
     it('should get 200', () =>
       agent.get('/dogs').expect(200)
     );
   });
 });
+
+describe("GET /dogs/id", function() {
+  it('GET responds with a status 200 if it finds a dog for id',  function() {
+    return agent 
+      .get('/dogs/1') 
+      .expect(function(res){
+        expect(res.status).equal(200)}); 
+  })
+})
