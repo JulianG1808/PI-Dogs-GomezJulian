@@ -9,6 +9,9 @@ import { postDog, getTemperaments } from "../../redux/actions/actions";
 //import css
 import './CreateDog.css'
 
+const regExpImg = {
+    img: /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/i
+}
 //------------------------------------------Formulario controlado----------------------------------------------------------
 function formControl(input){
     let check = {}
@@ -30,6 +33,8 @@ function formControl(input){
     else if(isNaN(parseInt(input.weightMax))){check.weightMax = 'El peso maximo deberia ser un numero'}
     //años de vida
     else if(isNaN(parseInt(input.lifeSpan))){check.lifeSpan = 'Los años de vida deben ser numeros'}
+    //image
+    else if(!regExpImg.img.test(input.image)){check.image = 'La imagen debe ser una URL'}
 
     return check;
 }
@@ -91,7 +96,7 @@ export default function CreateDog(){
     
     function handleSubmit(e){
         e.preventDefault();
-        if(!check.name && !check.heightMin && !check.heightMax && !check.weightMin && !check.weightMax) {
+        if(!check.name && !check.heightMin && !check.heightMax && !check.weightMin && !check.weightMax && !check.image) {
             dispatch(postDog(input))
             alert('Raza creada')
             setInput({
@@ -142,6 +147,9 @@ export default function CreateDog(){
                             <p className="errors">{check.lifeSpan}</p>
                             )}
                         <input type='text' name='image' value={input.image} onChange={e => handleChange(e)} placeholder='Ingrese url de imagen'/>
+                        {check.image && (
+                            <p className="errors">{check.image}</p>
+                            )}
                 </section>
                 <section>
                     <select className="select" name='temperaments' onChange={(e) => handleSelect(e)}>
