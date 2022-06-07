@@ -24,7 +24,7 @@ function formControl(input){
     //peso minimo
     else if(!input.weightMin){check.weightMin = 'Deberia tener un peso minimo'}
     else if(isNaN(parseInt(input.weightMin))){check.weightMin = 'El peso minimo deberia ser un numero'}
-    else if(parseInt(input.weightMin) > parseInt(input.weightMax)) {check.weightMin = 'el peso minimo deberia ser menor al peso maximo'}
+    else if(parseInt(input.weightMin) > parseInt(input.weightMax)) {check.weightMin = 'El peso minimo deberia ser menor al peso maximo'}
     //peso maximo
     else if(!input.weightMax){check.weightMax = 'Deberia tener un peso maximo'}
     else if(isNaN(parseInt(input.weightMax))){check.weightMax = 'El peso maximo deberia ser un numero'}

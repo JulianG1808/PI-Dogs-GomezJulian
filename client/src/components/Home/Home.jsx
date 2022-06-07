@@ -93,7 +93,7 @@ const paginated = (pageNumber) => {
                 </select> */}
                 <label for='temperaments' className="labelFilter">Filtrar por temperamentos: </label>
                 <select name='temperaments' onChange={(e) => handleFilterTemp(e)}>
-                    <option value='all'>Todos</option>
+                    <option value='allTemps'>Todos</option>
                     {allTemperaments?.sort(function (a, b) {
                             if (a.name < b.name) return -1;
                             if (a.name > b.name) return 1;
@@ -106,7 +106,7 @@ const paginated = (pageNumber) => {
                 </select>
                 <label for='existence' className="labelFilter">Filtrar por existencias: </label>
                 <select name= 'existence' onChange={(e) => handleFilterExist(e)}>
-                    <option value='all'>Todos</option>
+                    <option value='allExist'>Todos</option>
                     <option value='existent'>Razas Existentes</option>
                     <option value='created'>Razas Creadas</option>
                 </select>

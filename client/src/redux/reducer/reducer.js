@@ -34,8 +34,9 @@ function rootReducer(state= initialState, action) {
                 ...state
             }
         case 'FILTER_TEMPERAMENTS':
-            const filterTemp = action.payload === 'all' ? state.backupDogs : 
-            state.backupDogs.filter((dog) => dog.temperaments?.includes(action.payload))
+            const allDogsTemps = state.backupDogs
+            const filterTemp = action.payload === 'allTemps' ? allDogsTemps : 
+            allDogsTemps.filter((dog) => dog.temperaments?.includes(action.payload))
 
             return {
                 ...state,
@@ -43,7 +44,7 @@ function rootReducer(state= initialState, action) {
             }
         case 'FILTER_EXISTENCE':
             const allDogs = state.backupDogs
-            const filterExist = action.payload === 'all' ? allDogs : 
+            const filterExist = action.payload === 'allExist' ? allDogs : 
             action.payload === 'created' ? allDogs.filter(dog => dog.createdInDb) :
             allDogs.filter(dog => !dog.createdInDb)
 

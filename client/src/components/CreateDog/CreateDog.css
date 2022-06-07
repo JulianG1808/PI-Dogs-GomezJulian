@@ -68,9 +68,9 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    /* display: flex;
+    justify-content: center; */
+    /* flex-wrap: wrap; */
 }
 
 .tempsList li{
@@ -86,14 +86,15 @@
 .tempsList button{
     transition: all 0.3s ease;
     border-radius: 50px;
-    border: 1px solid red;
+    border: 1px solid brown;
+    color: brown;
     background-color: transparent;
     margin-left: 3px;
 }
 
 .tempsList button:hover{
-    border: 1px solid black;
-    background-color: red;
+    border: 1px solid red;
+    color: red;
     cursor: pointer;
 }
 
