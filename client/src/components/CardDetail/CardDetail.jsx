@@ -41,7 +41,7 @@ export default function CardDetail(){
                                             dog[0].temperaments :
                                             dog[0].temperaments.map(e => e.name).join(', ')}</p>
                 </div> :
-                <h1 id='loading'>Cargando el perro...</h1>
+                <img className='gifLoad' src='https://i.gifer.com/origin/c4/c46888cc22f835845757ee46a242ea8e_w200.gif'/>
             }
         </div>
     )

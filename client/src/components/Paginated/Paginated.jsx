@@ -9,7 +9,6 @@ export default function Paginated ({dogsPerPage, allDogs, paginated}){
     const pageNumbers = []
     for (let i = 1; i <= Math.ceil(allDogs/dogsPerPage) ; i++) {
         pageNumbers.push(i)
-        
     }
 //--------------------------------------------Render-----------------------------------------------------
     return (

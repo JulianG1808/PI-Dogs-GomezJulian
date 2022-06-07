@@ -17,11 +17,11 @@ router.get('/temperaments', async (req, res) => {
         let allTemperament = infoApi.data.map(dog => dog.temperament ? dog.temperament : 'no temperament').join(", ").split(", ")
         let filterTemperament = allTemperament.filter(temp => temp !== 'no temperament')
 
-        let eachTemperament = [...new Set(filterTemperament.flat())]
+        let eachTemperament = [...new Set(filterTemperament)]
         eachTemperament.forEach(temp => {
             Temperament.findOrCreate({
                 where: {name: temp}
-            })   
+            })
         })
 
         let temperamentDb = await Temperament.findAll()

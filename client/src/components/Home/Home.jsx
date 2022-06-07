@@ -34,9 +34,9 @@ const [currentPage, setCurrentPage] = useState(1);
 const [dogsPerPage, /* setDogsPerPage */] = useState(8);
 const [/* sort */, setSort] = useState('')
 
-const indexLastDogPerPage = currentPage * dogsPerPage;
-const indexFirstDogPerPage = indexLastDogPerPage - dogsPerPage;
-const currentDogs = allDogs.slice(indexFirstDogPerPage, indexLastDogPerPage);
+const indexLastDogPerPage = currentPage * dogsPerPage; // 8
+const indexFirstDogPerPage = indexLastDogPerPage - dogsPerPage; //0
+const currentDogs = allDogs.slice(indexFirstDogPerPage, indexLastDogPerPage); //(0, 8)
 
 const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -72,11 +72,17 @@ const paginated = (pageNumber) => {
     // }
 //------------------------------------------------Render-------------------------------------------------------
     return (
+        <div>
+        {!allDogs.length ?
+            <div>
+                <img className= 'gifLoad' src='http://northerntechmap.com/assets/img/loading-dog.gif'/>
+            </div>
+        :
         <div className="backgroundHOME">
             <div className="conteinerNAV">
-            <Link to = '/dog'><button>Crear raza de perro</button></Link>
-            <button onClick={e => {handleClick(e)}}>Recargar perros</button>
-            <SearchBar/>
+                <Link to = '/dog'><button>Crear raza de perro</button></Link>
+                <button onClick={e => {handleClick(e)}}>Recargar perros</button>
+                <SearchBar/>
             </div>
             <div className="conteinerFilter">
                 <label for='sortBy' className="labelFilter">Ordenar por: </label>
@@ -86,11 +92,11 @@ const paginated = (pageNumber) => {
                     <option value='weightAsc'>Liviano a Pesado</option>
                     <option value='weightDesc'>Pesado a Liviano</option>
                 </select>
-                {/* <label for='weight'>Ordenar por peso</label> */}
-                {/* <select name='weight' onChange={(e) => handleSortWeight(e)}>
-                    <option value='asc'>Liviano a Pesado</option>
-                    <option value='desc'>Pesado a Liviano</option>
-                </select> */}
+            {/* <label for='weight'>Ordenar por peso</label> */}
+            {/* <select name='weight' onChange={(e) => handleSortWeight(e)}>
+                <option value='asc'>Liviano a Pesado</option>
+                <option value='desc'>Pesado a Liviano</option>
+            </select> */}
                 <label for='temperaments' className="labelFilter">Filtrar por temperamentos: </label>
                 <select name='temperaments' onChange={(e) => handleFilterTemp(e)}>
                     <option value='allTemps'>Todos</option>
@@ -113,24 +119,24 @@ const paginated = (pageNumber) => {
             </div>
             <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} />
             <div className="cardConteiner">
-                { 
-                    currentDogs?.map((e) => {
-                        return (
-                            <div key={e.id}>
-                                <Link to={`/home/${e.id}`} style={{ textDecoration: 'none', color: 'black'}}>
-                                    <Card 
-                                    image={e.image}
-                                    name={e.name}
-                                    temperaments={e.temperaments}
-                                    weightMin={e.weightMin}
-                                    weightMax={e.weightMax}
-                                    />
-                                </Link>
-                            </div>
-                        )
-                    })
-                }
+                {currentDogs?.map((e) => {
+                    return (
+                        <div key={e.id}>
+                            <Link to={`/home/${e.id}`} style={{ textDecoration: 'none', color: 'black'}}>
+                                <Card 
+                                image={e.image}
+                                name={e.name}
+                                temperaments={e.temperaments}
+                                weightMin={e.weightMin}
+                                weightMax={e.weightMax}
+                                />
+                            </Link>
+                        </div>
+                    )
+                })}
             </div>
         </div>
-    )
+    }
+    </div>
+)  
 }
