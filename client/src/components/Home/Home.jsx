@@ -75,7 +75,7 @@ const paginated = (pageNumber) => {
         <div>
         {!allDogs.length ?
             <div>
-                <img className= 'gifLoad' src='http://northerntechmap.com/assets/img/loading-dog.gif'/>
+                <img className= 'gifLoad' src='http://northerntechmap.com/assets/img/loading-dog.gif' alt='gif not found'/>
             </div>
         :
         <div className="backgroundHOME">
