@@ -36,7 +36,13 @@ function rootReducer(state= initialState, action) {
         case 'FILTER_TEMPERAMENTS':
             const allDogsTemps = state.backupDogs
             const filterTemp = action.payload === 'allTemps' ? allDogsTemps : 
-            allDogsTemps.filter((dog) => dog.temperaments?.includes(action.payload))
+            allDogsTemps.filter((dog) => {for (let i = 0; i < dog.temperaments.length; i++) {
+                if(dog.temperaments[i].name === action.payload) {return true}
+                else if(dog.temperaments.includes(action.payload)) {return true}
+            }
+            return false
+            })
+            // dog.temperaments?.includes(action.payload))
 
             return {
                 ...state,

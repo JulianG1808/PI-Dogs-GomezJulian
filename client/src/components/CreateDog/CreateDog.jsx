@@ -121,19 +121,19 @@ export default function CreateDog(){
                         {check.name && (
                         <p className="errors">{check.name}</p>
                         )}
-                        <input type='text' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)} placeholder='Ingrese altura minima'/>
+                        <input type='text' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)} placeholder='Ingrese altura minima en cm'/>
                         {check.heightMin && (
                             <p className="errors">{check.heightMin}</p>
                             )}
-                        <input type='text' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)} placeholder='Ingrese altura maxima'/>
+                        <input type='text' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)} placeholder='Ingrese altura maxima en cm'/>
                         {check.heightMax && (
                             <p className="errors">{check.heightMax}</p>
                             )}
-                        <input type='text' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)} placeholder='Ingrese peso minimo'/>
+                        <input type='text' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)} placeholder='Ingrese peso minimo en kg'/>
                         {check.weightMin && (
                             <p className="errors">{check.weightMin}</p>
                             )}
-                        <input type='text' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)} placeholder='Ingrese peso maximo'/>
+                        <input type='text' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)} placeholder='Ingrese peso maximo en kg'/>
                         {check.weightMax && (
                             <p className="errors">{check.weightMax}</p>
                             )}
