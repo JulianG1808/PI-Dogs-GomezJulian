@@ -15,23 +15,27 @@ nav {
     margin: 0 1px;
 }
 
-.btnPag{
+.inactive, .active{
     transition: all 0.3s ease;
-    background-color: bisque;
-    color: brown;
     border-radius: 5px;
     border: none;
     width: 30px;
     height: 35px;
 }
 
-.btnPag:focus{
+.inactive{
+    background-color: bisque;
+    color: brown;
+}
+
+.active{
     background-color: brown;
     color: black;
 }
 
-.btnPag:hover{
+.inactive:hover, .active:hover{
     background-color: brown;
     color: bisque;
     cursor: pointer;
 }
+

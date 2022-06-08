@@ -117,7 +117,7 @@ const paginated = (pageNumber) => {
                     <option value='created'>Razas Creadas</option>
                 </select>
             </div>
-            <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} />
+            <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} currentPage={currentPage}/>
             <div className="cardConteiner">
                 {currentDogs?.map((e) => {
                     return (

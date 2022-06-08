@@ -4,7 +4,7 @@ import React from "react";
 import './Paginated.css'
 
 //-------------------------------------------------------------------------------------------------------------
-export default function Paginated ({dogsPerPage, allDogs, paginated}){
+export default function Paginated ({dogsPerPage, allDogs, paginated, currentPage}){
 //--------------------------------------------Paginado---------------------------------------------------
     const pageNumbers = []
     for (let i = 1; i <= Math.ceil(allDogs/dogsPerPage) ; i++) {
@@ -15,11 +15,15 @@ export default function Paginated ({dogsPerPage, allDogs, paginated}){
         <nav> 
             <ul className='pagination'>
                 {
-                    pageNumbers?.map(number => (
+                    pageNumbers?.map(number => {
+                        let active = (currentPage === number)
+                        return (
                         <li key={number}>
-                            <button className='btnPag' onClick={() => paginated(number)}>{number}</button>
+                            <button className={active ? 'active' : 'inactive'} onClick={() => paginated(number)}>{number}</button>
                         </li>
-                    ))
+                        )
+                    }
+                    )
                 }
             </ul>
         </nav>
