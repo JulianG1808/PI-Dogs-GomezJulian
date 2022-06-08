@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 
 //import actions
-import { /* sortByWeight */ sortBy, filterByExistence, filterByTemperaments, getAllDogs, getTemperaments } from "../../redux/actions/actions";
+import { sortBy, filterByExistence, filterByTemperaments, getAllDogs, getTemperaments } from "../../redux/actions/actions";
 
 //import components
 import Card from '../Card/Card.jsx'
@@ -51,25 +51,19 @@ const paginated = (pageNumber) => {
     function handleSortBy(e){
         e.preventDefault()
         dispatch(sortBy(e.target.value))
-        setCurrentPage(1) //empieza a ordenar desde la pag 1
+        setCurrentPage(1)
         setSort(e.target.value)
     }
 
     function handleFilterTemp(e){
         dispatch(filterByTemperaments(e.target.value))
+        setCurrentPage(1)
     }
 
     function handleFilterExist(e){
         dispatch(filterByExistence(e.target.value))
     }
 
-
-    // function handleSortWeight(e){
-    //     e.preventDefault()
-    //     dispatch(sortByWeight(e.target.value))
-    //     setCurrentPage(1)
-    //     setSort(e.target.value)
-    // }
 //------------------------------------------------Render-------------------------------------------------------
     return (
         <div>
@@ -92,11 +86,6 @@ const paginated = (pageNumber) => {
                     <option value='weightAsc'>Liviano a Pesado</option>
                     <option value='weightDesc'>Pesado a Liviano</option>
                 </select>
-            {/* <label for='weight'>Ordenar por peso</label> */}
-            {/* <select name='weight' onChange={(e) => handleSortWeight(e)}>
-                <option value='asc'>Liviano a Pesado</option>
-                <option value='desc'>Pesado a Liviano</option>
-            </select> */}
                 <label for='temperaments' className="labelFilter">Filtrar por temperamentos: </label>
                 <select name='temperaments' onChange={(e) => handleFilterTemp(e)}>
                     <option value='allTemps'>Todos</option>

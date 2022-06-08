@@ -93,10 +93,3 @@ export function sortBy(value){
         payload: value
     }
 }
-
-// export function sortByWeight(weight){
-//     return {
-//         type: 'SORT_WEIGHT',
-//         payload: weight
-//     }
-// }

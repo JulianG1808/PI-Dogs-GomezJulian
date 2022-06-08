@@ -6,10 +6,23 @@ const dogs = require('./routeDogs');
 const temperaments = require('./routeTemperaments');
 const postDog = require('./routeDog');
 
+
 //Routes
 router.use('/dogs', dogs); 
 router.use('/temperaments', temperaments);
 router.use('/dog', postDog)
+
+
+// const {Dog} = require ('../db.js')
+// router.post('/test', async (req, res) => {
+//     const { name, weightMin, weightMax, heightMin, heightMax } = req.body
+
+//     let dog = await Dog.create({
+//         name, heightMin, heightMax, weightMin, weightMax, createdInDb: true
+//     })
+
+//     res.send('Perro Creado')
+// })
 
 module.exports = router;
 

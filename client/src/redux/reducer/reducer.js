@@ -12,7 +12,8 @@ function rootReducer(state= initialState, action) {
             return{
                 ...state,
                 dogs: action.payload,
-                backupDogs: action.payload
+                backupDogs: action.payload,
+                detail: []
             }
         case 'GET_DOG':
             return{
@@ -106,34 +107,6 @@ function rootReducer(state= initialState, action) {
                 ...state,
                 dogs: sortBy
             }
-        // case 'SORT_WEIGHT':
-        //     const sortWeight = action.payload === 'asc' ?
-        //         state.dogs.sort(function (a, b){
-        //             const PromA = (parseInt(a.weightMin) + parseInt(a.weightMax)) / 2
-        //             const PromB = (parseInt(b.weightMin) + parseInt(b.weightMax)) / 2
-        //             if(PromA > PromB){
-        //                 return 1
-        //             }
-        //             if(PromA < PromB) {
-        //                 return -1
-        //             }
-        //             return 0
-        //         }) : //sino
-        //         state.dogs.sort(function (a, b){
-        //             const PromA = (parseInt(a.weightMin) + parseInt(a.weightMax)) / 2
-        //             const PromB = (parseInt(b.weightMin) + parseInt(b.weightMax)) / 2
-        //             if(PromA > PromB){
-        //                 return -1
-        //             }
-        //             if(PromA < PromB) {
-        //                 return 1
-        //             }
-        //             return 0
-        //         })
-        //     return {
-        //         ...state,
-        //         dogs: sortWeight
-        //     }
         default:
             return state;
         }

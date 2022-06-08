@@ -21,18 +21,23 @@ function formControl(input){
     else if(!input.heightMin){check.heightMin = 'Deberia tener una altura minima'}
     else if(isNaN(parseInt(input.heightMin))){check.heightMin = 'La altura minima deberia ser un numero'}
     else if(parseInt(input.heightMin) > parseInt(input.heightMax)) {check.heightMin = 'La altura minima deberia ser menor a la altura maxima'}
+    else if(parseInt(input.heightMin) < 0) {check.heightMin = 'La altura no puede ser menor a cero'}
     //altura maxima
     else if(!input.heightMax){check.heightMax = 'Deberia tener una altura maxima'}
     else if(isNaN(parseInt(input.heightMax))){check.heightMax = 'La altura maxima deberia ser un numero'}
+    else if(parseInt(input.heightMax) < 0) {check.heightMax = 'La altura no puede ser menor a cero'}
     //peso minimo
     else if(!input.weightMin){check.weightMin = 'Deberia tener un peso minimo'}
     else if(isNaN(parseInt(input.weightMin))){check.weightMin = 'El peso minimo deberia ser un numero'}
     else if(parseInt(input.weightMin) > parseInt(input.weightMax)) {check.weightMin = 'El peso minimo deberia ser menor al peso maximo'}
+    else if(parseInt(input.weightMin) < 0) {check.weightMin = 'El peso no puede ser menor a cero'}
     //peso maximo
     else if(!input.weightMax){check.weightMax = 'Deberia tener un peso maximo'}
     else if(isNaN(parseInt(input.weightMax))){check.weightMax = 'El peso maximo deberia ser un numero'}
+    else if(parseInt(input.weightMax) < 0) {check.weightMax = 'El peso no puede ser menor a cero'}
     //años de vida
     else if(isNaN(parseInt(input.lifeSpan))){check.lifeSpan = 'Los años de vida deben ser numeros'}
+    else if(parseInt(input.lifeSpan) < 0) {check.lifeSpan = 'Los años no pueden ser menor a cero'}
     //image
     else if(!regExpImg.img.test(input.image)){check.image = 'La imagen debe ser una URL'}
 
