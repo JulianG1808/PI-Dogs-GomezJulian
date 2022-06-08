@@ -6,11 +6,8 @@ const {API_KEY} = process.env;
 //importamos la DB
 const {Temperament} = require('../db.js')
 
-//importamos los controllers
-//const {getAllDogs} = require('../controllers/controller.js')
-
 //---------------------------------------RoutesTemps-----------------------------------------------
-router.get('/temperaments', async (req, res) => {
+router.get('/', async (req, res) => {
     const infoApi = await axios.get(`https://api.thedogapi.com/v1/breeds?${API_KEY}`)
 
     try {             

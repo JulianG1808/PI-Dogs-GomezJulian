@@ -43,8 +43,8 @@ function formControl(input){
 export default function CreateDog(){
 //-----------------------------------------------Conexiones---------------------------------------------------
     const dispatch = useDispatch();
-    const history = useHistory();
     const allTemperaments = useSelector((state) => state.temperaments);
+    const history = useHistory();
 
 //------------------------------------------------Estados------------------------------------------------------
     const [input, setInput] = useState({
@@ -176,7 +176,7 @@ export default function CreateDog(){
                 </section>
                 <section className="conteinerBtnForm">
                     <button type='submit' id='btnSubmit'>
-                    Crear raza de perro
+                        Crear raza de perro
                     </button>
                     <Link to='/home'>
                         <button id='btnCancel'>

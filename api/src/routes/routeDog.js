@@ -3,7 +3,7 @@ const router = Router();
 const { Dog, Temperament } = require('../db.js');
 
 //-----------------------------------------RoutesDog-----------------------------------------------
-router.post('/dog', async (req, res) => {
+router.post('/', async (req, res) => {
     const { name, heightMin, heightMax, weightMin, weightMax, lifeSpan, image, temperament } = req.body
     try {
         let createDog = await Dog.create ({

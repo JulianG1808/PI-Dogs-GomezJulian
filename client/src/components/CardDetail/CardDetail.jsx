@@ -13,8 +13,8 @@ import './CardDetail.css'
 export default function CardDetail(){
 //-----------------------------------------------Conexiones----------------------------------------------------
     const dispatch = useDispatch()
-    const { id } = useParams()
     const dog = useSelector(state => state.detail)
+    const { id } = useParams()
 
 //-----------------------------------------------didMount------------------------------------------------------
     useEffect(() => {

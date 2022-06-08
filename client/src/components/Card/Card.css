@@ -21,7 +21,3 @@ section article h2, section article h3, section article p {
     text-align: center;
     padding: 1px 3px;
 }
-
-#loading {
-    line-height: 200px;
-}

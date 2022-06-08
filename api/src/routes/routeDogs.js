@@ -1,17 +1,12 @@
 const express = require('express');
 const router = express.Router();
-// const axios = require('axios')
-// const {API_KEY} = process.env;
-
-//importamos la DB
-//const {Dog, Temperament} = require('../db.js')
 
 //importamos los controllers
 const {getAllDogs} = require('../controllers/controller.js')
 
 //---------------------------------------RoutesDogs-----------------------------------------------
 //route para /dogs y /dogs?name=
-router.get('/dogs', async(req, res) => {
+router.get('/', async(req, res) => {
     const name = req.query.name
     try {
         let allDogs = await getAllDogs()
@@ -29,7 +24,7 @@ router.get('/dogs', async(req, res) => {
     }
 })
 
-router.get('/dogs/:idRaza', async(req, res) => {
+router.get('/:idRaza', async(req, res) => {
     const {idRaza} = req.params
     
     try {

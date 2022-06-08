@@ -2,9 +2,6 @@ const axios = require('axios')
 const {Dog, Temperament} = require('../db.js')
 const {API_KEY} = process.env;
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-
 //-------------------------------------------Controllers----------------------------------------------------
 const getDogsApi = async () => { //traemos datos de la API
     const callApi = await axios.get(`https://api.thedogapi.com/v1/breeds?${API_KEY}`)
