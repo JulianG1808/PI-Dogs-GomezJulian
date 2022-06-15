@@ -5,12 +5,14 @@ const router = express.Router();
 const dogs = require('./routeDogs');
 const temperaments = require('./routeTemperaments');
 const postDog = require('./routeDog');
+const deleteDog = require('./routeDelete.js')
 
 
 //Routes
 router.use('/dogs', dogs); 
 router.use('/temperaments', temperaments);
 router.use('/dog', postDog)
+router.use('/clear', deleteDog)
 
 
 // const {Dog} = require ('../db.js')
