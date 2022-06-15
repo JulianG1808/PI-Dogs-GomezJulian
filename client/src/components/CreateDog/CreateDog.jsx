@@ -103,7 +103,7 @@ export default function CreateDog(){
         e.preventDefault();
         if(!check.name && !check.heightMin && !check.heightMax && !check.weightMin && !check.weightMax && !check.image) {
             dispatch(postDog(input))
-            alert('Raza creada')
+            alert('Raza creada correctamente')
             setInput({
                 name: '',
                 heightMin: '',

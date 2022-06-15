@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 
 //import actions
-import { getDetail } from "../../redux/actions/actions";
+import { deleteDog, getDetail } from "../../redux/actions/actions";
 
 //import css
 import './CardDetail.css'
@@ -15,12 +15,25 @@ export default function CardDetail(){
     const dispatch = useDispatch()
     const dog = useSelector(state => state.detail)
     const { id } = useParams()
+    const history = useHistory()
 
 //-----------------------------------------------didMount------------------------------------------------------
     useEffect(() => {
         dispatch(getDetail(id))
     },[dispatch, id])
     
+
+    function handlerDeleteDog(idDog){
+        function confirm (){
+            let res = window.confirm(`¿Estas seguro de querer borrar la raza ${dog[0].name}?`)
+            if(res === true){
+                dispatch(deleteDog(idDog))
+                alert('Raza eliminada correctamente')
+                history.push('/home')
+            }
+        }
+        confirm()
+    }
 //------------------------------------------------Render-------------------------------------------------------
     return (
         <div className="conteinerDog">
@@ -40,6 +53,11 @@ export default function CardDetail(){
                         !dog[0].createdInDb ?
                                             dog[0].temperaments :
                                             dog[0].temperaments.map(e => e.name).join(', ')}</p>
+                        {dog[0].createdInDb && (
+                            <div>
+                                <button onClick={() => handlerDeleteDog(id)}>Borrar Raza</button>
+                            </div>
+                            )}
                 </div> :
                 <img className='gifLoad' src='https://i.gifer.com/origin/c4/c46888cc22f835845757ee46a242ea8e_w200.gif' alt='gif not found'/>
             }

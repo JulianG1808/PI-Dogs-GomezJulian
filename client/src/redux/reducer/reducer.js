@@ -11,9 +11,9 @@ function rootReducer(state= initialState, action) {
         case 'GET_ALL_DOGS':
             return{
                 ...state,
+                detail: [],
                 dogs: action.payload,
                 backupDogs: action.payload,
-                detail: []
             }
         case 'GET_DOG':
             return{
@@ -34,6 +34,11 @@ function rootReducer(state= initialState, action) {
             return{
                 ...state
             }
+        case 'DELETE_DOG':
+            return{
+                ...state,
+            }
+        
         case 'FILTER_TEMPERAMENTS':
             const allDogsTemps = state.backupDogs
             const filterTemp = action.payload === 'allTemps' ? allDogsTemps : 

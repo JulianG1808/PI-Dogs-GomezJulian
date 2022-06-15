@@ -46,6 +46,7 @@ const paginated = (pageNumber) => {
     function handleClick(e){
         e.preventDefault()
         dispatch(getAllDogs())
+        setCurrentPage(1)
     }
 
     function handleSortBy(e){
@@ -62,14 +63,16 @@ const paginated = (pageNumber) => {
 
     function handleFilterExist(e){
         dispatch(filterByExistence(e.target.value))
+        setCurrentPage(1)
     }
 
 //------------------------------------------------Render-------------------------------------------------------
     return (
         <div>
         {!allDogs.length ?
-            <div>
-                <img className= 'gifLoad' src='http://northerntechmap.com/assets/img/loading-dog.gif' alt='gif not found'/>
+            <div className="loadingInfo">
+                <button onClick={e => {handleClick(e)}}>Recargar perros</button>
+                <img src='http://northerntechmap.com/assets/img/loading-dog.gif' alt='gif not found'/>
             </div>
         :
         <div className="backgroundHOME">

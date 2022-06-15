@@ -71,7 +71,22 @@ export function postDog(payload){
             console.log(error)
         }
     }
-} 
+}
+
+export function deleteDog(id){
+    return async function(dispatch){
+        try {
+            const res = await axios.delete(`http://localhost:3001/clear/${id}`)
+
+            return dispatch({
+                type: 'DELETE_DOG',
+                payload: res
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
 
 export function filterByTemperaments(temp){
     return{
