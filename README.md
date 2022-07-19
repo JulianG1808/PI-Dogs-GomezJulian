@@ -18,7 +18,7 @@ La idea general fue crear una aplicación en la cual se puedan ver distintas raz
 
 ## Comenzar
 
- 1. Clonar el repositorio en sus computadoras, puedes hacerlo utilizando el comando `git clone` en <strong>'git bash'</strong>
+ 1. Clonar el repositorio en sus computadoras, puedes hacerlo utilizando el comando `git clone https://github.com/JulianG1808/PI-Dogs-GomezJulian.git` en <strong>'git bash'</strong>
  2. En la carpeta `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
     ```
     DB_USER=usuariodepostgres
