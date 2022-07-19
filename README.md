@@ -24,7 +24,7 @@ La idea general fue crear una aplicación en la cual se puedan ver distintas raz
     DB_USER=usuariodepostgres
     DB_PASSWORD=passwordDePostgres
     DB_HOST=localhost
-    API_KEY=4ef3b90f-ab14-4a75-9545-89c5bc01ef5a
+    API_KEY=93e0ca3b-2f7e-42fb-97ac-2cc45a83e01c
     ```
     Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres.
     Adicionalmente será necesario que crees desde psql una base de datos llamada `dogs`.
