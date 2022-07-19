@@ -56,3 +56,14 @@ Para verificar que versión tienen instalada:
 - [ ] PostgresSQL
 - [ ] HTML
 - [ ] CSS
+
+## Imagenes del proyecto
+
+Landing Page
+<img src ="https://cdn.discordapp.com/attachments/757093607768326145/999022412295311470/unknown.png?width=904&height=469"/>
+
+Home
+<img src ="https://cdn.discordapp.com/attachments/757093607768326145/999022513164124315/unknown.png?width=904&height=469"/>
+
+Crear raza
+<img src ="https://cdn.discordapp.com/attachments/757093607768326145/999022610224517200/unknown.png?width=904&height=469"/>
