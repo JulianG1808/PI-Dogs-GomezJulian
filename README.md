@@ -56,3 +56,7 @@ Para verificar que versión tienen instalada:
 - [ ] PostgresSQL
 - [ ] HTML
 - [ ] CSS
+
+## Imagenes del proyecto
+
+
