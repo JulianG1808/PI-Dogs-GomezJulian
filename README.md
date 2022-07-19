@@ -45,7 +45,7 @@ Para verificar que versión tienen instalada:
 >
 > npm -v
 
-### Tecnologías utilizadas:
+## Tecnologías utilizadas:
 - [ ] JavaScript
 - [ ] React
 - [ ] Redux
