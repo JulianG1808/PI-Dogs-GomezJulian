@@ -18,9 +18,8 @@ La idea general fue crear una aplicación en la cual se puedan ver distintas raz
 
 ## Comenzar
 
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
- 3. En la carpeta `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
+ 1. Clonar el repositorio en sus computadoras, puedes hacerlo utilizando el comando `git clone` en <strong>git bash</strong>
+ 2. En la carpeta `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
     ```
     DB_USER=usuariodepostgres
     DB_PASSWORD=passwordDePostgres
@@ -29,9 +28,9 @@ La idea general fue crear una aplicación en la cual se puedan ver distintas raz
     ```
     Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres.
     Adicionalmente será necesario que crees desde psql una base de datos llamada `dogs`.
- 4. Una vez completado este paso, desde la consola, y parado en la carpeta <strong>'api'</strong>, correr los comandos ```npm install``` para instalar las dependencias. Luego, ```npm start``` para levantar la base de datos y correr el Back-end.
- 5. Repetir los comandos en otra consola, pero parado en la carpeta <strong>'client'</strong>.
- 6. El proyecto debería estarse corriendo en la ruta <em>localhost:3000</em> en tu navegador.
+ 3. Una vez completado este paso, desde la consola, y parado en la carpeta <strong>'api'</strong>, correr los comandos ```npm install``` para instalar las dependencias. Luego, ```npm start``` para levantar la base de datos y correr el Back-end.
+ 4. Repetir los comandos en otra consola, pero parado en la carpeta <strong>'client'</strong>.
+ 5. El proyecto debería estarse corriendo en la ruta <em>localhost:3000</em> en tu navegador.
 
 __IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
 
