@@ -24,6 +24,7 @@ La idea general fue crear una aplicación en la cual se puedan ver distintas raz
     DB_USER=usuariodepostgres
     DB_PASSWORD=passwordDePostgres
     DB_HOST=localhost
+    PORT=3001
     API_KEY=93e0ca3b-2f7e-42fb-97ac-2cc45a83e01c
     ```
     Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres.
