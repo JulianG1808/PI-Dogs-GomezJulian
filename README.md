@@ -33,19 +33,6 @@ La idea general fue crear una aplicación en la cual se puedan ver distintas raz
  4. Repetir los comandos en otra consola, pero parado en la carpeta <strong>'client'</strong>.
  5. El proyecto debería estarse corriendo en la ruta <em>localhost:3000</em> en tu navegador.
 
-__IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
-
-Actualmente las versiónes necesarias son:
-
- * __Node__: 12.18.3 o mayor
- * __NPM__: 6.14.16 o mayor
-
-Para verificar que versión tienen instalada:
-
-> node -v
->
-> npm -v
-
 ## Tecnologías utilizadas:
 - [ ] JavaScript
 - [ ] React
