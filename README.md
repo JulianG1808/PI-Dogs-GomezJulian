@@ -20,7 +20,7 @@ La idea general fue crear una aplicación en la cual se puedan ver distintas raz
 
  1. Forkear el repositorio para tener una copia del mismo en sus cuentas
  2. Clonar el repositorio en sus computadoras para comenzar a trabajar
- 3. En la carpet `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
+ 3. En la carpeta `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
     ```
     DB_USER=usuariodepostgres
     DB_PASSWORD=passwordDePostgres
@@ -48,12 +48,11 @@ Para verificar que versión tienen instalada:
 
 #### Tecnologías utilizadas:
 - [ ] JavaScript
-- [ ] HTML
-- [ ] CSS
 - [ ] React
 - [ ] Redux
 - [ ] Node
 - [ ] Express
-- [ ] SQL
 - [ ] Sequelize
-- [ ] Postgres
+- [ ] PostgresSQL
+- [ ] HTML
+- [ ] CSS
