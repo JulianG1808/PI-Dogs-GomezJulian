@@ -18,7 +18,7 @@ export function getAllDogs(){
 export function getDog(name){
     return async function(dispatch){
         try {
-            let res = await axios.get(`http://localhost:3001/dogs?name=${name}`)
+            let res = await axios.get(`/dogs?name=${name}`)
 
             return dispatch({
                 type: 'GET_DOG',
