@@ -34,7 +34,7 @@ export function getDog(name){
 export function getTemperaments(){
     return async function(dispatch){
         try {
-            let res = await axios.get('http://localhost:3001/temperaments')
+            let res = await axios.get(`/temperaments`)
 
             return dispatch({
                 type: 'GET_TEMPERAMENTS',
@@ -49,7 +49,7 @@ export function getTemperaments(){
 export function getDetail(id){
     return async function(dispatch){
         try {
-            let res = await axios.get(`http://localhost:3001/dogs/${id}`)
+            let res = await axios.get(`/dogs/${id}`)
 
             return dispatch({
                 type: 'GET_DETAIL',
@@ -64,7 +64,7 @@ export function getDetail(id){
 export function postDog(payload){
     return async function(dispatch){
         try {
-            const res = await axios.post('http://localhost:3001/dog', payload)
+            const res = await axios.post('/dog', payload)
             return res
         } catch (error) {
             console.log(error)
@@ -75,7 +75,7 @@ export function postDog(payload){
 export function deleteDog(id){
     return async function(dispatch){
         try {
-            const res = await axios.delete(`http://localhost:3001/clear/${id}`)
+            const res = await axios.delete(`/clear/${id}`)
 
             return dispatch({
                 type: 'DELETE_DOG',
