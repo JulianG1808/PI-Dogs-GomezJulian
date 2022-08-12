@@ -3,8 +3,7 @@ import axios from 'axios';
 export function getAllDogs(){
     return async function(dispatch){
         try {
-            let res = await axios.get('http://localhost:3001/dogs',{
-            })
+            let res = await axios.get(`/dogs`)
     
             return dispatch({
                 type: 'GET_ALL_DOGS',
