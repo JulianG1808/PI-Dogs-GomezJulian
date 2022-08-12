@@ -8,7 +8,7 @@ const cors = require('cors')
 require('./db.js');
 
 const server = express();
-const whitelist = ['http://localhost:3001', 'https://pi-dogs-juligomez.herokuapp.com']
+const whitelist = ['http://localhost:3001', 'https://pi-dogs-juligomez.herokuapp.com', 'https://pi-dogs-gomez-julian.vercel.app']
 
 server.name = 'API';
 
