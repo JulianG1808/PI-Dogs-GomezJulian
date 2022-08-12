@@ -3,13 +3,16 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+const cors = require('cors')
 
 require('./db.js');
 
 const server = express();
+const whitelist = ['http://localhost:3001', 'https://pi-dogs-juligomez.herokuapp.com']
 
 server.name = 'API';
 
+server.use(cors({ origin: whitelist }))
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
