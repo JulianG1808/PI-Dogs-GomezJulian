@@ -23,7 +23,7 @@ export default function CardDetail(){
     },[dispatch, id])
     
 
-    function handlerDeleteDog(idDog){
+    function handleDeleteDog(idDog){
         function confirm (){
             let res = window.confirm(`¿Estas seguro de querer borrar la raza ${dog[0].name}?`)
             if(res === true){
@@ -55,7 +55,8 @@ export default function CardDetail(){
                                             dog[0].temperaments.map(e => e.name).join(', ')}</p>
                         {dog[0].createdInDb && (
                             <div>
-                                <button onClick={() => handlerDeleteDog(id)}>Borrar Raza</button>
+                                <button onClick={() => handleDeleteDog(id)}>Borrar Raza</button>
+                                <Link to={`/edit/${id}`}><button>Editar Raza</button></Link>
                             </div>
                             )}
                 </div> :
