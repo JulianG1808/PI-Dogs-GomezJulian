@@ -1,16 +1,17 @@
 const { Router } = require('express')
 const router = Router()
-const { Dog } = require('../db.js')
+const { Dog, Temperament} = require('../db.js')
 
 router.put('/:id', async (req, res) => {
   const {id} = req.params
   const { name, heightMin, heightMax, weightMin, weightMax, lifeSpan, image, temperament  } = req.body
-
+  console.log('temperaments en el put: ', req.body.temperament)
   let condition = {}
 
   try {
 
     const dogsEdit = await Dog.findByPk(id)
+    const oldTemperament = temperament
 
     if(!dogsEdit) {
       res.status(404).send('No se encontró el id')
@@ -23,12 +24,16 @@ router.put('/:id', async (req, res) => {
     if(weightMax){condition.weightMax = weightMax}
     if(lifeSpan){condition.lifeSpan = lifeSpan}
     if(image){condition.image = image}
-    if(temperament){condition.temperament = temperament}
+    let temperamentDb = await Temperament.findAll({
+    where: { name: temperament }
+    })
+
 
     await dogsEdit.update(condition)
+    await dogsEdit.addTemperament(temperamentDb)
     res.send(`La raza fue modificada con exito`)
   }
-  catch {
+  catch (error) {
     console.log(error)
   }
 })
