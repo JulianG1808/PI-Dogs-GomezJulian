@@ -76,11 +76,6 @@ const paginated = (pageNumber) => {
             </div>
         :
         <div className="backgroundHOME">
-            <div className="conteinerNAV">
-                <Link to = '/dog'><button>Crear raza de perro</button></Link>
-                <button onClick={e => {handleClick(e)}}>Recargar perros</button>
-                <SearchBar/>
-            </div>
             <div className="conteinerFilter">
                 <label for='sortBy' className="labelFilter">Ordenar por: </label>
                 <select name='sortBy' onChange={(e) => handleSortBy(e)}>

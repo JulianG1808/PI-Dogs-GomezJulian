@@ -7,6 +7,10 @@ html body{
     font-family: 'Libre Franklin', sans-serif, arial;
 }
 
+.backgroundHOME {
+    margin-top: 4rem;
+}
+
 .cardConteiner{
     background-color: coral;
     width: 90%;
