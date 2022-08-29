@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams, useHistory } from 'react-router-dom';
+import defaultIMG from '../../images/default-dog.jpg'
 
 //import actions
 import { deleteDog, getDetail } from "../../redux/actions/actions";
@@ -41,13 +42,13 @@ export default function CardDetail(){
             {dog.length ?  
                 <div className="Dog">
                     <h1>{dog[0].name}</h1>
-                    <img src={dog[0].image} alt='img not found' width='400px' height='400px'/>
+                    <img src={dog[0].image ? dog[0].image : defaultIMG} alt='img not found' width='400px' height='400px'/>
                         <h3>Altura: </h3>
-                        <p>{dog[0].heightMin} - {dog[0].heightMax} cm</p>
+                        <p>{`${dog[0].heightMin ? dog[0].heightMin : "¿¿"} - ${dog[0].heightMax ? dog[0].heightMax : "??"} cm`}</p>
                         <h3>Peso: </h3>
-                        <p>{dog[0].weightMin} - {dog[0].weightMax} kg</p>
+                        <p>{`${dog[0].weightMin ? dog[0].weightMin : "¿¿"} - ${dog[0].weightMax ? dog[0].weightMax : "??"} kg`}</p>
                         <h3>Años de vida estimados: </h3>
-                        <p>{dog[0].lifeSpan} años</p>
+                        <p>{dog[0].lifeSpan ? `${dog[0].lifeSpan} years old` : 'No info about years old'}</p>
                         <h3>Temperamentos: </h3>
                         <p>{
                         !dog[0].createdInDb ?
