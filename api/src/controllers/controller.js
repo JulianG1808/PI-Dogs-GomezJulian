@@ -14,7 +14,7 @@ const getDogsApi = async () => { //traemos datos de la API
             weightMax: parseInt(e.weight.metric.slice(4)),
             heightMin: parseInt(e.height.metric.slice(0, 2)),
             heightMax: parseInt(e.height.metric.slice(4)),
-            temperaments: e.temperament ? e.temperament : `Lo sentimos. No tenemos informacion sobre los temperamentos de la raza ${e.name}`,
+            temperaments: e.temperament ? e.temperament : `Sorry. No information about temperaments of the ${e.name} breed`,
             image: e.image.url,
         }
     })
