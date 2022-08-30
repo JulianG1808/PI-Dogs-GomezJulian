@@ -1,7 +1,7 @@
 import React from "react";
 import './NavBar.css'
 import {Link} from 'react-router-dom'
-import SearchBar from "../SearchBar/SearchBar";
+import dogIcon from '../../images/dog-icon.jpg'
 
 const NavBar = () => {
   return (
@@ -15,7 +15,9 @@ const NavBar = () => {
         </li>
       </ul>
       <div className="SearchContainer">
-        <SearchBar/>
+        <Link to='/home'>
+          <img src={dogIcon} alt='dog icon' />
+        </Link>
       </div>
     </div>
   )
