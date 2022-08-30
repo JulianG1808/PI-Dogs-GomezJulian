@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import defaultIMG from '../../images/default-dog.jpg'
 
 //import actions
@@ -16,7 +16,7 @@ export default function CardDetail(){
     const dispatch = useDispatch()
     const dog = useSelector(state => state.detail)
     const { id } = useParams()
-    const history = useHistory()
+    const navigate = useNavigate()
 
 //-----------------------------------------------didMount------------------------------------------------------
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function CardDetail(){
             if(res === true){
                 dispatch(deleteDog(idDog))
                 alert('Raza eliminada correctamente')
-                history.push('/home')
+                navigate('/home')
             }
         }
         confirm()

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 //import actions
 import { postDog, getTemperaments } from "../../redux/actions/actions";
@@ -49,7 +49,7 @@ export default function CreateDog(){
 //-----------------------------------------------Conexiones---------------------------------------------------
     const dispatch = useDispatch();
     const allTemperaments = useSelector((state) => state.temperaments);
-    const history = useHistory();
+    const navigate = useNavigate();
 
 //------------------------------------------------Estados------------------------------------------------------
     const [input, setInput] = useState({
@@ -114,7 +114,7 @@ export default function CreateDog(){
                 image: '',
                 temperament: []
             })
-            history.push('/home')
+            navigate('/home')
         }
         else {
             alert('Faltan datos para poder crear el perro')

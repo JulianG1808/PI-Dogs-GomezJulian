@@ -1,4 +1,4 @@
-.conteinerSearch input {
+.containerSearch input {
     transition: all 0.3s ease;
     border-radius: 5px;
     width: 200px;
@@ -8,7 +8,7 @@
     background-color: whitesmoke;
 }
 
-.conteinerSearch button{
+.containerSearch button{
     transition: all 0.3s ease;
     border-radius: 5px;
     border: 5px brown;
@@ -19,7 +19,7 @@
     
 }
 
-.conteinerSearch button:hover{
+.containerSearch button:hover{
     border-radius: 5px;
     border-color: antiquewhite;
     color:antiquewhite;
@@ -27,6 +27,6 @@
     cursor: pointer;
 }
 
-.conteinerSearch input:hover{
+.containerSearch input:hover{
     background-color: white;
 }

@@ -4,6 +4,7 @@
   position: fixed;
   height: 3rem;
   background-color: black;
+  z-index: 9999;
 
   display: flex;
   justify-content: space-between;

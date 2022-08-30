@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 //import actions
 import { editDog, getTemperaments, getDetail } from "../../redux/actions/actions";
@@ -49,7 +49,7 @@ export default function CreateDog(){
 //-----------------------------------------------Hooks---------------------------------------------------
     const dispatch = useDispatch();
     const allTemperaments = useSelector((state) => state.temperaments);
-    const history = useHistory();
+    const navigate = useNavigate();
     const { id } = useParams()
     const dog = useSelector(state => state.detail)
 
@@ -126,7 +126,7 @@ export default function CreateDog(){
             image: '',
             temperament: []
         })
-        history.push('/home')
+        navigate('/home')
     }
 
 //------------------------------------------------Render-------------------------------------------------------
