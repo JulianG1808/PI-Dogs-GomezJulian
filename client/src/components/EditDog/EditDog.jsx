@@ -115,7 +115,7 @@ export default function CreateDog(){
     function handleSubmit(e){
         e.preventDefault();
         dispatch(editDog(id, input))
-        alert('Raza editada correctamente')
+        alert('Breed edit successfully')
         setInput({
             name: '',
             heightMin: '',
@@ -133,33 +133,33 @@ export default function CreateDog(){
     return( 
         <div className="conteinerAllCreateDog">
             <form className="conteinerForm" onSubmit={e => handleSubmit(e)}>
-            <h1>Edita tu propia raza de perro</h1>
-                <section className="conteinerInputs">
-                        <input type='text' name='name' value={input.name} onChange={e => handleChange(e)} placeholder='Ingrese nombre'/>
+            <h1>Edit your own breed</h1>
+            <section className="conteinerInputs">
+                        <input type='text' name='name' value={input.name} onChange={e => handleChange(e)} placeholder='Insert name'/>
                         {check.name && (
                         <p className="errors">{check.name}</p>
                         )}
-                        <input type='number' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)} placeholder='Ingrese altura minima en cm'/>
+                        <input type='number' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)} placeholder='Insert a minimum height in cm'/>
                         {check.heightMin && (
                             <p className="errors">{check.heightMin}</p>
                             )}
-                        <input type='number' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)} placeholder='Ingrese altura maxima en cm'/>
+                        <input type='number' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)} placeholder='Insert a maximum height in cm'/>
                         {check.heightMax && (
                             <p className="errors">{check.heightMax}</p>
                             )}
-                        <input type='number' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)} placeholder='Ingrese peso minimo en kg'/>
+                        <input type='number' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)} placeholder='Insert a minimum weight in kg'/>
                         {check.weightMin && (
                             <p className="errors">{check.weightMin}</p>
                             )}
-                        <input type='number' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)} placeholder='Ingrese peso maximo en kg'/>
+                        <input type='number' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)} placeholder='Insert a maximum weight in kg'/>
                         {check.weightMax && (
                             <p className="errors">{check.weightMax}</p>
                             )}
-                        <input type='text' name='lifeSpan' value={input.lifeSpan} onChange={e => handleChange(e) } placeholder='Ingrese años de vida estimados'/>
+                        <input type='text' name='lifeSpan' value={input.lifeSpan} onChange={e => handleChange(e) } placeholder='insert estimated life years'/>
                         {check.lifeSpan && (
                             <p className="errors">{check.lifeSpan}</p>
                             )}
-                        <input type='text' name='image' value={input.image} onChange={e => handleChange(e)} placeholder='Ingrese url de imagen'/>
+                        <input type='text' name='image' value={input.image} onChange={e => handleChange(e)} placeholder='Insert a URL image'/>
                         {check.image && (
                             <p className="errors">{check.image}</p>
                             )}
@@ -189,11 +189,11 @@ export default function CreateDog(){
                 </section>
                 <section className="conteinerBtnForm">
                     <button type='submit' id='btnSubmit'>
-                        Confirmar
+                        Confirm edit
                     </button>
                     <Link to='/home'>
                         <button id='btnCancel'>
-                            Cancelar
+                            Cancel
                         </button>
                     </Link>
                 </section>
