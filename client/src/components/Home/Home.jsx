@@ -109,11 +109,20 @@ const paginated = (pageNumber) => {
                         <option value='created'>Created</option>
                     </select>
                 </li>
+                <li className="EachFilter">
+                    <button className="resetFilters" onClick={e => {handleClick(e)}}>Reset Filters</button>
+                </li>
             </ul>
             <div className="cardContainer">
-                <div className="paginated">
-                    <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} currentPage={currentPage}/>
-                </div>
+                <ul className="paginated">
+                    <li className="searchbar">
+                        <SearchBar />
+                    </li>
+                    <li className="paginado">
+                        <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} currentPage={currentPage}/>
+                    </li>
+                    
+                </ul>
                 <div className="cards">
                     {currentDogs?.map((e) => {
                         return (
