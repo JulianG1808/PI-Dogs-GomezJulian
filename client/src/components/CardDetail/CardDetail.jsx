@@ -40,7 +40,7 @@ export default function CardDetail(){
         <div className="containerDog">
             {dog.length ?  
                 <div className="Dog">
-                    <h1>{dog[0].name}</h1>
+                    <h1>{dog[0].name ? dog[0].name : "No Name"}</h1>
                     <img src={dog[0].image ? dog[0].image : defaultIMG} alt='img not found' width='400px' height='400px'/>
                         <h3>Height: </h3>
                         <p>{`${dog[0].heightMin ? dog[0].heightMin : "¿¿"} - ${dog[0].heightMax ? dog[0].heightMax : "??"} cm`}</p>
