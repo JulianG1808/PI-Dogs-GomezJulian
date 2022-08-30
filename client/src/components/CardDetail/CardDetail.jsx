@@ -26,10 +26,10 @@ export default function CardDetail(){
 
     function handleDeleteDog(idDog){
         function confirm (){
-            let res = window.confirm(`¿Estas seguro de querer borrar la raza ${dog[0].name}?`)
+            let res = window.confirm(`¿Are you sure you want delete the ${dog[0].name} breed?`)
             if(res === true){
                 dispatch(deleteDog(idDog))
-                alert('Raza eliminada correctamente')
+                alert('Breed Deleted Successfully')
                 navigate('/home')
             }
         }
@@ -37,27 +37,26 @@ export default function CardDetail(){
     }
 //------------------------------------------------Render-------------------------------------------------------
     return (
-        <div className="conteinerDog">
-            <Link to='/home'><button className="btnHome">Volver al inicio</button></Link>
+        <div className="containerDog">
             {dog.length ?  
                 <div className="Dog">
                     <h1>{dog[0].name}</h1>
                     <img src={dog[0].image ? dog[0].image : defaultIMG} alt='img not found' width='400px' height='400px'/>
-                        <h3>Altura: </h3>
+                        <h3>Height: </h3>
                         <p>{`${dog[0].heightMin ? dog[0].heightMin : "¿¿"} - ${dog[0].heightMax ? dog[0].heightMax : "??"} cm`}</p>
-                        <h3>Peso: </h3>
+                        <h3>Weight: </h3>
                         <p>{`${dog[0].weightMin ? dog[0].weightMin : "¿¿"} - ${dog[0].weightMax ? dog[0].weightMax : "??"} kg`}</p>
-                        <h3>Años de vida estimados: </h3>
+                        <h3>Life span: </h3>
                         <p>{dog[0].lifeSpan ? `${dog[0].lifeSpan} years old` : 'No info about years old'}</p>
-                        <h3>Temperamentos: </h3>
+                        <h3>Temperaments: </h3>
                         <p>{
                         !dog[0].createdInDb ?
                                             dog[0].temperaments :
                                             dog[0].temperaments.map(e => e.name).join(', ')}</p>
                         {dog[0].createdInDb && (
                             <div>
-                                <button onClick={() => handleDeleteDog(id)}>Borrar Raza</button>
-                                <Link to={`/edit/${id}`}><button>Editar Raza</button></Link>
+                                <button onClick={() => handleDeleteDog(id)}>Delete Breed</button>
+                                <Link to={`/edit/${id}`}><button>Edit Breed</button></Link>
                             </div>
                             )}
                 </div> :
