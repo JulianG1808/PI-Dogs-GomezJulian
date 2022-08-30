@@ -75,52 +75,62 @@ const paginated = (pageNumber) => {
                 <img src='http://northerntechmap.com/assets/img/loading-dog.gif' alt='gif not found'/>
             </div>
         :
-        <div className="backgroundHOME">
-            <div className="conteinerFilter">
-                <label for='sortBy' className="labelFilter">Ordenar por: </label>
-                <select name='sortBy' onChange={(e) => handleSortBy(e)}>
-                    <option value='aToZ'>A - Z</option>
-                    <option value='zToA'>Z - A</option>
-                    <option value='weightAsc'>Liviano a Pesado</option>
-                    <option value='weightDesc'>Pesado a Liviano</option>
-                </select>
-                <label for='temperaments' className="labelFilter">Filtrar por temperamentos: </label>
-                <select name='temperaments' onChange={(e) => handleFilterTemp(e)}>
-                    <option value='allTemps'>Todos</option>
-                    {allTemperaments?.sort(function (a, b) {
-                            if (a.name < b.name) return -1;
-                            if (a.name > b.name) return 1;
-                            return 0;
-                        }).map(temp => {
-                                return (
-                                    <option key={temp.id} value={temp.name}>{temp.name}</option>
-                                )
-                            })}
-                </select>
-                <label for='existence' className="labelFilter">Filtrar por existencias: </label>
-                <select name= 'existence' onChange={(e) => handleFilterExist(e)}>
-                    <option value='allExist'>Todos</option>
-                    <option value='existent'>Razas Existentes</option>
-                    <option value='created'>Razas Creadas</option>
-                </select>
-            </div>
-            <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} currentPage={currentPage}/>
-            <div className="cardConteiner">
-                {currentDogs?.map((e) => {
-                    return (
-                        <div key={e.id}>
-                            <Link to={`/home/${e.id}`} style={{ textDecoration: 'none', color: 'black'}}>
-                                <Card 
-                                image={e.image}
-                                name={e.name}
-                                temperaments={e.temperaments}
-                                weightMin={e.weightMin}
-                                weightMax={e.weightMax}
-                                />
-                            </Link>
-                        </div>
-                    )
-                })}
+        <div className="HOME">
+            <ul className="containerFilter">
+                <li className="EachFilter">
+                    <label for='sortBy' className="labelFilter">Order by: </label>
+                    <select name='sortBy' onChange={(e) => handleSortBy(e)}>
+                        <option value='aToZ'>A - Z</option>
+                        <option value='zToA'>Z - A</option>
+                        <option value='weightAsc'>Lighter to Heavier</option>
+                        <option value='weightDesc'>Heavier to Lighter</option>
+                    </select>
+                </li>
+                <li className="EachFilter">
+                    <label for='temperaments' className="labelFilter">Filter by temperaments: </label>
+                    <select name='temperaments' onChange={(e) => handleFilterTemp(e)}>
+                        <option value='allTemps'>All</option>
+                        {allTemperaments?.sort(function (a, b) {
+                                if (a.name < b.name) return -1;
+                                if (a.name > b.name) return 1;
+                                return 0;
+                            }).map(temp => {
+                                    return (
+                                        <option key={temp.id} value={temp.name}>{temp.name}</option>
+                                    )
+                                })}
+                    </select>
+                </li>
+                <li className="EachFilter">
+                    <label for='existence' className="labelFilter">Filter by existence: </label>
+                    <select name= 'existence' onChange={(e) => handleFilterExist(e)}>
+                        <option value='allExist'>All</option>
+                        <option value='existent'>Existent</option>
+                        <option value='created'>Created</option>
+                    </select>
+                </li>
+            </ul>
+            <div className="cardContainer">
+                <div className="paginated">
+                    <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} currentPage={currentPage}/>
+                </div>
+                <div className="cards">
+                    {currentDogs?.map((e) => {
+                        return (
+                            <div key={e.id}>
+                                <Link to={`/home/${e.id}`} style={{ textDecoration: 'none', color: 'black'}}>
+                                    <Card 
+                                    image={e.image}
+                                    name={e.name}
+                                    temperaments={e.temperaments}
+                                    weightMin={e.weightMin}
+                                    weightMax={e.weightMax}
+                                    />
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     }

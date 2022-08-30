@@ -7,70 +7,78 @@ html body{
     font-family: 'Libre Franklin', sans-serif, arial;
 }
 
-.backgroundHOME {
+.HOME {
     margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
 }
 
-.cardConteiner{
+.cardContainer{
     background-color: coral;
-    width: 90%;
-    height: 1060px;
-    padding: 10px;
-    margin: 0 4%;
-    background-attachment: fixed;
+    width: 105rem;
+    height: 70rem;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.paginated {
+    top: 0;
+    /* position: absolute; */
+}
+
+.cards {
+    margin-top: 3rem;
+    position: absolute;
+    width: 100%;
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-content: flex-start;
-    align-content: flex-start;
+    align-items: flex-start;
 }
 
-.conteinerNAV{
+.containerFilter{
+    padding: 0;
+    background-color: coral;
     display: flex;
-    align-content: center;
-    align-items: stretch;
+    flex-direction: column;
+    list-style: none;
     justify-content: center;
-    margin-top: 20px;
+    align-content: flex-start;
+    height: 20rem;
+    width: 11rem;
+    border-radius: 10px;
 }
 
-.conteinerNAV button{
+.EachFilter {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem 1rem;
+    width: 90%;
+}
+
+.containerFilter select{
     transition: all 0.3s ease;
     border-radius: 5px;
-    border: 5px brown;
-    color:brown;
-    background-color: antiquewhite;
-    width: 150px;
-    height: 35px;
-    margin: 5px;
-}
-
-.conteinerNAV button:hover{
-    border-radius: 5px;
-    border-color: antiquewhite;
-    color:antiquewhite;
-    background-color: brown;
-    cursor: pointer;
-}
-
-.conteinerFilter{
-    margin: 5px;
-}
-
-.conteinerFilter select{
-    transition: all 0.3s ease;
-    border-radius: 5px;
-    width: 150px;
     height: 30px;
-    margin: 0 5px;
+    width: 8rem;
+    margin-top: .5rem;
     background-color: whitesmoke;
 }
 
-.conteinerFilter select option{
+.containerFilter select option{
     transition: all 0.3s ease;
     background-color: whitesmoke;
 }
 
-.conteinerFilter select:hover{
+.containerFilter select:hover{
     cursor: pointer;
     background-color: white;
 }
