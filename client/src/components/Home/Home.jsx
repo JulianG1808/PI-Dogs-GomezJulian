@@ -11,6 +11,7 @@ import Card from '../Card/Card.jsx'
 import Paginated from "../Paginated/Paginated.jsx";
 import SearchBar from "../SearchBar/SearchBar";
 import NavBar from '../NavBar/NavBar'
+import Footer from '../Footer/Footer'
 
 //import css
 import './Home.css'
@@ -140,6 +141,7 @@ const paginated = (pageNumber) => {
                         })}
                 </div>
             </div>
+            <Footer />
         </div>
 )  
 }

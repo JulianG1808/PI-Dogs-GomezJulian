@@ -5,6 +5,9 @@ html body{
     background-attachment: fixed;
     overflow-x:hidden;
     font-family: 'Libre Franklin', sans-serif, arial;
+    position: relative;
+    padding-bottom: 9rem;
+    min-height: 100vh;
 }
 
 .HOME {
