@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import NavBar from '../NavBar/NavBar'
 
 //import actions
 import { editDog, getTemperaments, getDetail } from "../../redux/actions/actions";
@@ -132,6 +133,7 @@ export default function CreateDog(){
 //------------------------------------------------Render-------------------------------------------------------
     return( 
         <div className="conteinerAllCreateDog">
+            <NavBar />
             <form className="conteinerForm" onSubmit={e => handleSubmit(e)}>
             <h1>Edit your own breed</h1>
             <section className="conteinerInputs">

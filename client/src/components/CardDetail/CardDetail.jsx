@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import defaultIMG from '../../images/default-dog.jpg'
+import NavBar from '../NavBar/NavBar'
+
 
 //import actions
 import { deleteDog, getDetail } from "../../redux/actions/actions";
@@ -37,6 +39,8 @@ export default function CardDetail(){
     }
 //------------------------------------------------Render-------------------------------------------------------
     return (
+        <>
+        <NavBar />
         <div className="containerDog">
             {dog.length ?  
                 <div className="Dog">
@@ -63,5 +67,6 @@ export default function CardDetail(){
                 <img className='gifLoad' src='https://i.gifer.com/origin/c4/c46888cc22f835845757ee46a242ea8e_w200.gif' alt='gif not found'/>
             }
         </div>
+            </>
     )
 }

@@ -10,6 +10,7 @@ import { sortBy, filterByExistence, filterByTemperaments, getAllDogs, getTempera
 import Card from '../Card/Card.jsx'
 import Paginated from "../Paginated/Paginated.jsx";
 import SearchBar from "../SearchBar/SearchBar";
+import NavBar from '../NavBar/NavBar'
 
 //import css
 import './Home.css'
@@ -68,14 +69,8 @@ const paginated = (pageNumber) => {
 
 //------------------------------------------------Render-------------------------------------------------------
     return (
-        <div>
-        {!allDogs.length ?
-            <div className="loadingInfo">
-                <button onClick={e => {handleClick(e)}}>Recargar perros</button>
-                <img src='http://northerntechmap.com/assets/img/loading-dog.gif' alt='gif not found'/>
-            </div>
-        :
         <div className="HOME">
+            <NavBar />
             <ul className="containerFilter">
                 <li className="EachFilter">
                     <label for='sortBy' className="labelFilter">Order by: </label>
@@ -124,25 +119,27 @@ const paginated = (pageNumber) => {
                     
                 </ul>
                 <div className="cards">
-                    {currentDogs?.map((e) => {
-                        return (
-                            <div key={e.id}>
-                                <Link to={`/home/${e.id}`} style={{ textDecoration: 'none', color: 'black'}}>
-                                    <Card 
-                                    image={e.image}
-                                    name={e.name}
-                                    temperaments={e.temperaments}
-                                    weightMin={e.weightMin}
-                                    weightMax={e.weightMax}
-                                    />
-                                </Link>
-                            </div>
-                        )
-                    })}
+                    {!allDogs.length ?
+                        <div className="loadingInfo">
+                            <img src='https://i.gifer.com/origin/c4/c46888cc22f835845757ee46a242ea8e_w200.gif' alt='gif not found'/>
+                        </div>
+                        : currentDogs?.map((e) => {
+                            return (
+                                <div key={e.id}>
+                                    <Link to={`/home/${e.id}`} style={{ textDecoration: 'none', color: 'black'}}>
+                                        <Card 
+                                        image={e.image}
+                                        name={e.name}
+                                        temperaments={e.temperaments}
+                                        weightMin={e.weightMin}
+                                        weightMax={e.weightMax}
+                                        />
+                                    </Link>
+                                </div>
+                            )
+                        })}
                 </div>
             </div>
         </div>
-    }
-    </div>
 )  
 }
