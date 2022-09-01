@@ -13,17 +13,17 @@ const Footer = () => {
         <p>Contact me</p>
         <ul className="containerInfoFooter">
           <li>
-            <a href='https://www.linkedin.com/in/leandrojuliangomez/'>
+            <a href='https://www.linkedin.com/in/leandrojuliangomez/' target="_blank" rel="noopener noreferrer">
               <FaIcons.FaLinkedin size={50} color="#0072b1"/>
             </a>
           </li>
           <li>
-            <a href='https://github.com/JulianG1808'>
+            <a href='https://github.com/JulianG1808' target="_blank" rel="noopener noreferrer">
               <FaIcons.FaGithub size={50} color="#6e5494"/>
             </a>
           </li>
           <li>
-            <a href='juliangomez.xvii@gmail.com'>
+            <a href='mailto:juliangomez.xvii@gmail.com'>
               <SiIcons.SiGmail size={50} color="#DB4437"/>
             </a>
           </li>
@@ -65,12 +65,12 @@ const Footer = () => {
         <p>Other Projects</p>
         <ul className="containerInfoFooter">
           <li>
-            <a href='https://portfolio-julian.vercel.app/'>
+            <a href='https://portfolio-julian.vercel.app/' target="_blank" rel="noopener noreferrer">
               <FcIcons.FcBriefcase size={50}/>
             </a>
           </li>
           <li>
-            <a href='https://henry-games-pg.vercel.app/'>
+            <a href='https://henry-games-pg.vercel.app/' target="_blank" rel="noopener noreferrer">
               <img src={henrygames} alt="henrygames logo" />
             </a>
           </li>
