@@ -17,30 +17,30 @@ const regExpImg = {
 function formControl(input){
     let check = {}
     //name
-    if(!input.name){check.name = 'Deberia tener un nombre'}
+    if(!input.name){check.name = 'The breed should have a name'}
     //altura minima
-    else if(!input.heightMin){check.heightMin = 'Deberia tener una altura minima'}
-    else if(isNaN(parseInt(input.heightMin))){check.heightMin = 'La altura minima deberia ser un numero'}
-    else if(parseInt(input.heightMin) > parseInt(input.heightMax)) {check.heightMin = 'La altura minima deberia ser menor a la altura maxima'}
-    else if(parseInt(input.heightMin) < 0) {check.heightMin = 'La altura no puede ser menor a cero'}
+    else if(!input.heightMin){check.heightMin = 'Should have a minimum height'}
+    else if(isNaN(parseInt(input.heightMin))){check.heightMin = 'The minimum height should be a number'}
+    else if(parseInt(input.heightMin) > parseInt(input.heightMax)) {check.heightMin = 'The minimum height should be less than the maximum height'}
+    else if(parseInt(input.heightMin) < 0) {check.heightMin = 'Height should not be less than zero'}
     //altura maxima
-    else if(!input.heightMax){check.heightMax = 'Deberia tener una altura maxima'}
-    else if(isNaN(parseInt(input.heightMax))){check.heightMax = 'La altura maxima deberia ser un numero'}
-    else if(parseInt(input.heightMax) < 0) {check.heightMax = 'La altura no puede ser menor a cero'}
+    else if(!input.heightMax){check.heightMax = 'Should have a maximum height'}
+    else if(isNaN(parseInt(input.heightMax))){check.heightMax = 'The maximum height should be a number'}
+    else if(parseInt(input.heightMax) < 0) {check.heightMax = 'Height should not be less than zero'}
     //peso minimo
-    else if(!input.weightMin){check.weightMin = 'Deberia tener un peso minimo'}
-    else if(isNaN(parseInt(input.weightMin))){check.weightMin = 'El peso minimo deberia ser un numero'}
-    else if(parseInt(input.weightMin) > parseInt(input.weightMax)) {check.weightMin = 'El peso minimo deberia ser menor al peso maximo'}
-    else if(parseInt(input.weightMin) < 0) {check.weightMin = 'El peso no puede ser menor a cero'}
+    else if(!input.weightMin){check.weightMin = 'Should have a minimum weight'}
+    else if(isNaN(parseInt(input.weightMin))){check.weightMin = 'The minimum weight should be a number'}
+    else if(parseInt(input.weightMin) > parseInt(input.weightMax)) {check.weightMin = 'The minimum weight should be less than the maximum weight'}
+    else if(parseInt(input.weightMin) < 0) {check.weightMin = 'Weight should not be less than zero'}
     //peso maximo
-    else if(!input.weightMax){check.weightMax = 'Deberia tener un peso maximo'}
-    else if(isNaN(parseInt(input.weightMax))){check.weightMax = 'El peso maximo deberia ser un numero'}
-    else if(parseInt(input.weightMax) < 0) {check.weightMax = 'El peso no puede ser menor a cero'}
+    else if(!input.weightMax){check.weightMax = 'Should have a maximum weight'}
+    else if(isNaN(parseInt(input.weightMax))){check.weightMax = 'The maximum weight should be a number'}
+    else if(parseInt(input.weightMax) < 0) {check.weightMax = 'Weight should not be less than zero'}
     //años de vida
-    else if(isNaN(parseInt(input.lifeSpan))){check.lifeSpan = 'Los años de vida deben ser numeros'}
-    else if(parseInt(input.lifeSpan) < 0) {check.lifeSpan = 'Los años no pueden ser menor a cero'}
+    else if(isNaN(parseInt(input.lifeSpan))){check.lifeSpan = 'The years of life must be numbers'}
+    else if(parseInt(input.lifeSpan) < 0) {check.lifeSpan = 'The years of life should not be less than zero'}
     //image
-    else if(!regExpImg.img.test(input.image)){check.image = 'La imagen debe ser una URL'}
+    else if(!regExpImg.img.test(input.image)){check.image = 'The image must be a URL'}
 
     return check;
 }
