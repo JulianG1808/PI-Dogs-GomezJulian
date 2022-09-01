@@ -72,6 +72,18 @@ export function postDog(payload){
     }
 }
 
+export function editDog(id, payload){
+    return async function(dispatch){
+        try{
+            const res = await axios.put(`/edit/${id}`, payload)
+            return res
+        }
+        catch (error){
+            console.log(error)
+        }
+    }
+}
+
 export function deleteDog(id){
     return async function(dispatch){
         try {

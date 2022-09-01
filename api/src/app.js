@@ -9,7 +9,7 @@ const { BASE_URL } = process.env
 require('./db.js');
 
 const server = express();
-const whitelist = ['http://localhost:3001', 'https://pi-dogs-juligomez.herokuapp.com', 'https://pi-dogs-gomez-julian.vercel.app']
+const whitelist = ['http://localhost:3001', 'http://localhost:3000', 'https://pi-dogs-juligomez.herokuapp.com', 'https://pi-dogs-gomez-julian.vercel.app']
 
 server.name = 'API';
 

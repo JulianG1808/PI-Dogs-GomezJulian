@@ -10,9 +10,9 @@ export default function LandingPage() {
     return(
         <div className='conteinerLP'>
             <div class='position'>
-                <h1>Bienvenido a mi PI-DOGS</h1>
+                <h1>Welcome to the DOGSAPP</h1>
                     <Link to='/home'>
-                        <button>Ir al inicio</button>
+                        <button>Start</button>
                     </Link>
             </div>
         </div>

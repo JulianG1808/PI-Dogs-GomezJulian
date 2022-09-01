@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar'
 
 //import actions
-import { postDog, getTemperaments } from "../../redux/actions/actions";
+import { editDog, getTemperaments, getDetail } from "../../redux/actions/actions";
 
 //import css
-import './CreateDog.css'
+import './EditDog.css'
 
 const regExpImg = {
     img: /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/i
@@ -47,21 +47,33 @@ function formControl(input){
 
 //--------------------------------------------Function Default------------------------------------------------
 export default function CreateDog(){
-//-----------------------------------------------Conexiones---------------------------------------------------
+//-----------------------------------------------Hooks---------------------------------------------------
     const dispatch = useDispatch();
     const allTemperaments = useSelector((state) => state.temperaments);
     const navigate = useNavigate();
+    const { id } = useParams()
+    const dog = useSelector(state => state.detail)
 
-//------------------------------------------------Estados------------------------------------------------------
+//---------------------------------------------Info Dog Detail-------------------------------------------------
+    const nameDog = dog[0].name
+    const heightMin = dog[0].heightMin
+    const heightMax = dog[0].heightMax
+    const weightMin = dog[0].weightMin
+    const weightMax = dog[0].weightMax
+    const lifeSpan = dog[0].lifeSpan
+    const imageDog = dog[0].image
+    const temperamentsDetailDog = dog[0].temperaments.map(e => e.name)
+
+//------------------------------------------------LocalStates------------------------------------------------------
     const [input, setInput] = useState({
-        name: '',
-        heightMin: '',
-        heightMax: '',
-        weightMin: '',
-        weightMax: '',
-        lifeSpan: '',
-        image: '',
-        temperament: []
+        name: nameDog,
+        heightMin: heightMin,
+        heightMax: heightMax,
+        weightMin: weightMin,
+        weightMax: weightMax,
+        lifeSpan: lifeSpan,
+        image: imageDog,
+        temperament: temperamentsDetailDog
     })
 
     const [check, setCheck] = useState({})
@@ -69,7 +81,8 @@ export default function CreateDog(){
 //-----------------------------------------------didMount------------------------------------------------------
     useEffect(() =>{
         dispatch(getTemperaments())
-    },[dispatch])
+        dispatch(getDetail(id))
+    },[dispatch, id])
 
 //-----------------------------------------Handler Functions---------------------------------------------------
     function handleChange(e){
@@ -102,24 +115,19 @@ export default function CreateDog(){
     
     function handleSubmit(e){
         e.preventDefault();
-        if(!check.name && !check.heightMin && !check.heightMax && !check.weightMin && !check.weightMax && !check.image) {
-            dispatch(postDog(input))
-            alert('Breed created successfully')
-            setInput({
-                name: '',
-                heightMin: '',
-                heightMax: '',
-                weightMin: '',
-                weightMax: '',
-                lifeSpan: '',
-                image: '',
-                temperament: []
-            })
-            navigate('/home')
-        }
-        else {
-            alert('Missing data to create the breed')
-        }
+        dispatch(editDog(id, input))
+        alert('Breed edit successfully')
+        setInput({
+            name: '',
+            heightMin: '',
+            heightMax: '',
+            weightMin: '',
+            weightMax: '',
+            lifeSpan: '',
+            image: '',
+            temperament: []
+        })
+        navigate('/home')
     }
 
 //------------------------------------------------Render-------------------------------------------------------
@@ -127,8 +135,8 @@ export default function CreateDog(){
         <div className="conteinerAllCreateDog">
             <NavBar />
             <form className="conteinerForm" onSubmit={e => handleSubmit(e)}>
-            <h1>Create your own breed</h1>
-                <section className="conteinerInputs">
+            <h1>Edit your own breed</h1>
+            <section className="conteinerInputs">
                         <input type='text' name='name' value={input.name} onChange={e => handleChange(e)} placeholder='Insert name'/>
                         {check.name && (
                         <p className="errors">{check.name}</p>
@@ -183,7 +191,7 @@ export default function CreateDog(){
                 </section>
                 <section className="conteinerBtnForm">
                     <button type='submit' id='btnSubmit'>
-                        Create breed
+                        Confirm edit
                     </button>
                     <Link to='/home'>
                         <button id='btnCancel'>
