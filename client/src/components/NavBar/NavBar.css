@@ -51,3 +51,16 @@
   background-color: brown;
 }
 
+.NavigationPart span {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.NavigationPart span:hover {
+  color: brown;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
