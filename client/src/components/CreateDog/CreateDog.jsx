@@ -124,11 +124,11 @@ export default function CreateDog(){
 
 //------------------------------------------------Render-------------------------------------------------------
     return( 
-        <div className="conteinerAllCreateDog">
+        <div className="containerAllCreateDog">
             <NavBar />
-            <form className="conteinerForm" onSubmit={e => handleSubmit(e)}>
+            <form className="containerForm" onSubmit={e => handleSubmit(e)}>
             <h1>Create your own breed</h1>
-                <section className="conteinerInputs">
+                <section className="containerInputs">
                         <input type='text' name='name' value={input.name} onChange={e => handleChange(e)} placeholder='Insert name'/>
                         {check.name && (
                         <p className="errors">{check.name}</p>
@@ -172,7 +172,7 @@ export default function CreateDog(){
                                 })}
                     </select>
                 </section>
-                <section className="conteinerTemps">
+                <section className="containerTemps">
                 {input.temperament.map(e => (
                     <ul className="tempsList">
                         <li>
@@ -181,7 +181,7 @@ export default function CreateDog(){
                     </ul>
                 ))}
                 </section>
-                <section className="conteinerBtnForm">
+                <section className="containerBtnForm">
                     <button type='submit' id='btnSubmit'>
                         Create breed
                     </button>
