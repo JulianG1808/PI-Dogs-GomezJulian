@@ -2,16 +2,22 @@ import React from "react";
 import './NavBar.css'
 import {Link} from 'react-router-dom'
 import dogIcon from '../../images/dog-icon.jpg'
+import * as ImIcons from "react-icons/im";
+import * as AiIcons from "react-icons/ai";
 
 const NavBar = () => {
   return (
     <div className="containerNavBar">
       <ul className="NavigationPart">
-        <li>
-          <Link to='/home'><button className="buttonNavigation">Home</button></Link>
+        <li className="icon">
+          <Link to='/home'>
+            <span>HOME</span>
+          </Link>
         </li>
-        <li>
-          <Link to='/dog'><button className="buttonNavigation">+ Create Breed</button></Link>
+        <li className="icon">
+          <Link to='/dog'>
+            <span>CREATE</span>
+          </Link>
         </li>
       </ul>
       <div className="SearchContainer">
