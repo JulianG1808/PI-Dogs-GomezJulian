@@ -110,11 +110,11 @@ const paginated = (pageNumber) => {
                 </li>
             </ul>
             <div className="cardContainer">
-                <ul className="paginated">
+                <ul className="navigationPart">
                     <li className="searchbar">
                         <SearchBar />
                     </li>
-                    <li className="paginado">
+                    <li className="paginated">
                         <Paginated dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginated={paginated} currentPage={currentPage}/>
                     </li>
                     

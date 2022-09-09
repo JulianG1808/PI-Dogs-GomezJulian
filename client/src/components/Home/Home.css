@@ -30,22 +30,26 @@ html body{
     justify-content: center; */
 }
 
-.paginated {
+.navigationPart {
     display: flex;
     top: 0;
     margin-top: .5rem;
     list-style: none;
     padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: 100%;
+    align-items: center;
 }
 
 .searchbar {
-    flex-basis: 20%;
-    left: 0;
+    margin-right: auto;
+    position: absolute;
 }
 
-.paginado {
-    flex-basis: 60%;
+.paginated {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cards {

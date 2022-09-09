@@ -59,9 +59,9 @@ export default function CardDetail(){
                                                 dog[0].temperaments :
                                                 dog[0].temperaments.map(e => e.name).join(', ')}</p>
                             {dog[0].createdInDb && (
-                                <div>
-                                    <button onClick={() => handleDeleteDog(id)}>Delete Breed</button>
+                                <div className="containerBtn">
                                     <Link to={`/edit/${id}`}><button>Edit Breed</button></Link>
+                                    <button onClick={() => handleDeleteDog(id)}>Delete Breed</button>
                                 </div>
                                 )}
                     </div> :
