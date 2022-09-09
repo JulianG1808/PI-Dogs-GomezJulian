@@ -49,7 +49,6 @@ nav {
     background-color: antiquewhite;
     display: flex;
     justify-content: center;
-    align-items: center;
     cursor: pointer;
 }
 
@@ -60,17 +59,14 @@ nav {
 .functions.more {
     align-items: flex-end;
     padding-bottom: .3rem;
-    opacity: 75%;
-}
-
-.functions.more:hover {
-    opacity: 100%;
 }
 
 .functions.arrowNext {
     margin-left: 0.5rem;
+    align-items: center;
 }
 
 .functions.arrowPrev {
     margin-right: 0.5rem;
+    align-items: center;
 }
