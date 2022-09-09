@@ -11,9 +11,10 @@ nav {
     display: flex;
 }
         
-.pagination li {
-    margin: 0 1px;
-}
+/* .pagination li {
+    margin-left: .1rem;
+    margin-right: .1rem;
+} */
 
 .inactive, .active{
     transition: all 0.3s ease;
