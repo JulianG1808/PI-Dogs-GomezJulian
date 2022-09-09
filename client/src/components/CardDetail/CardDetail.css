@@ -38,3 +38,27 @@
 .gifLoad {
     margin-top: 5vh;
 }
+
+.containerBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.containerBtn button{
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    margin: 0.5rem;
+    background-color: transparent;
+    border: 1px solid brown;
+    color: brown;
+    cursor: pointer;
+}
+
+.containerBtn button:hover {
+    background-color: brown;
+    color: antiquewhite;
+    border: antiquewhite;
+}
