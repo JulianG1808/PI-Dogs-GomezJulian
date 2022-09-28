@@ -1,13 +1,10 @@
-html{
-    font-family: 'Libre Franklin', sans-serif, arial;
-}
-
 .containerLP{
     background-image: url('../../images/LandingPageIMG2.jpg');
     background-attachment: initial;
     position: absolute;
     width: 100vw;
     height: 100vh;
+    overflow-y: hidden;
 }
 
 .position {
@@ -16,15 +13,15 @@ html{
 }
 
 .position h1 {
-    color:	antiquewhite;
+    color:	whitesmoke;
 }
 
 .position button{
     transition: all 0.3s ease;
     padding: 5px;
-    border: 1px solid brown;
-    color: brown;
-    background-color: antiquewhite;
+    border: 1px solid orangered;
+    color: orangered;
+    background-color: bisque;
     border-radius: 5px;
     height: 40px;
     width: 100px;
@@ -33,9 +30,9 @@ html{
 }
 
 .position button:hover {
-    background-color: brown;
-    color: antiquewhite;
-    border: 1px solid antiquewhite;
+    background-color: orangered;
+    color: bisque;
+    border: 1px solid bisque;
     cursor: pointer;
 }
 
