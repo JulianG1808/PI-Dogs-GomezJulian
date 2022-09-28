@@ -1,0 +1,102 @@
+.mainFilters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.showFiltersBtn {
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  border: 5px orangered;
+  color:orangered;
+  background-color:  	bisque;
+  width: 70px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.showFiltersBtn:hover{
+  border-radius: 5px;
+  border-color:  	bisque;
+  color: 	bisque;
+  background-color: orangered;
+  cursor: pointer;
+}
+
+.containerFilter.show{
+  padding: 0;
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  justify-content: center;
+  align-content: flex-start;
+  height: 22rem;
+  width: 11rem;
+  border-radius: 10px;
+  position: absolute;
+  margin-top: 3rem;
+}
+
+.EachFilter {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 90%;
+}
+
+.labelFilter {
+  color: whitesmoke;
+}
+
+.containerFilter select{
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  height: 30px;
+  width: 8rem;
+  margin-top: .5rem;
+  background-color: whitesmoke;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.containerFilter select option{
+  transition: all 0.3s ease;
+  background-color: whitesmoke;
+}
+
+.containerFilter select:hover{
+  cursor: pointer;
+  background-color: white;
+}
+
+.resetFilters{
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  border: 5px orangered;
+  color:orangered;
+  background-color: antiquewhite;
+  width: 9rem;
+  height: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+}
+
+.resetFilters:hover{
+  border-color: antiquewhite;
+  color:antiquewhite;
+  background-color: orangered;
+  cursor: pointer;
+}
+
+.containerFilter.notshow {
+  display: none;
+}

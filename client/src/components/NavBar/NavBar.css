@@ -23,13 +23,13 @@
   justify-content: space-around;
 }
 
-.SearchContainer {
+.iconContainer {
   margin-top: auto;
   margin-bottom: auto;
   margin-right: .5rem;
 }
 
-.SearchContainer img {
+.iconContainer img {
   width: 40px;
   border-radius: 4px;
 }
@@ -37,8 +37,8 @@
 .buttonNavigation {
   width: 7rem;
   height: 2rem;
-  background-color: antiquewhite;
-  color: brown;
+  background-color: bisque;
+  color: orangered;
   border-radius: 4px;
   border: none;
   font-size: 15px;
@@ -47,8 +47,8 @@
 }
 
 .buttonNavigation:hover {
-  color:antiquewhite;
-  background-color: brown;
+  color:bisque;
+  background-color: orangered;
 }
 
 .NavigationPart span {
@@ -59,7 +59,7 @@
 }
 
 .NavigationPart span:hover {
-  color: brown;
+  color: orangered;
   cursor: pointer;
   transition: all 0.3s ease;
 }

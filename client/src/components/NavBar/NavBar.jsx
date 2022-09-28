@@ -2,8 +2,6 @@ import React from "react";
 import './NavBar.css'
 import {Link} from 'react-router-dom'
 import dogIcon from '../../images/dog-icon.jpg'
-import * as ImIcons from "react-icons/im";
-import * as AiIcons from "react-icons/ai";
 
 const NavBar = () => {
   return (
@@ -20,7 +18,7 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-      <div className="SearchContainer">
+      <div className="iconContainer">
         <Link to='/home'>
           <img src={dogIcon} alt='dog icon' />
         </Link>

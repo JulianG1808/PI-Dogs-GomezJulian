@@ -14,6 +14,7 @@ nav {
 .pagination button {
     margin-left: .1rem;
     margin-right: .1rem;
+    font-size: 14px;
 }
 
 .inactive, .active{
@@ -26,16 +27,16 @@ nav {
 
 .inactive{
     background-color: bisque;
-    color: brown;
+    color: orangered;
 }
 
 .active{
-    background-color: brown;
+    background-color: orangered;
     color: black;
 }
 
 .inactive:hover, .active:hover{
-    background-color: brown;
+    background-color: orangered;
     color: bisque;
     cursor: pointer;
 }
@@ -46,14 +47,15 @@ nav {
     border: none;
     width: 30px;
     height: 35px;
-    background-color: antiquewhite;
+    background-color: whitesmoke;
     display: flex;
     justify-content: center;
     cursor: pointer;
 }
 
 .functions:hover {
-    background-color: blanchedalmond;
+    background-color: orange;
+    color: bisque;
 }
 
 .functions.more {

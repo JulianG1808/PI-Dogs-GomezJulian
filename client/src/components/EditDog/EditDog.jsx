@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer'
 import { editDog, getTemperaments, getDetail } from "../../redux/actions/actions";
 
 //import css
-import './EditDog.css'
+import '../CreateDog/CreateDog.css'
 
 const regExpImg = {
     img: /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/i
