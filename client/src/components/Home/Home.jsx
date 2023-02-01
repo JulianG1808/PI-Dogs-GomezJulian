@@ -48,8 +48,8 @@ const paginated = (pageNumber) => {
 //------------------------------------------------Render-------------------------------------------------------
     return (
         <>
-            <NavBar />
             <div className="HOME">
+            <NavBar />
                 <div className="cardContainer">
                     <ul className="navigationPart">
                         <li className="filter">
@@ -85,8 +85,8 @@ const paginated = (pageNumber) => {
                             })}
                     </div>
                 </div>
-            </div>
             <Footer />
+            </div>
         </>
 )  
 }

@@ -1,9 +1,9 @@
 .containerFooter {
-  position: absolute;
-  bottom: 0;  
+  /* position: absolute;  */
   width: 100vw;
   background-color: #1e1e1e;
   display: flex;
+  bottom: 0;
 }
 
 .Contact {
@@ -55,4 +55,10 @@
 
 a:link, a:visited, a:active {
   text-decoration:none;
+}
+
+@media only screen and (max-width: 600px) {
+  .containerFooter {
+    flex-direction: column;
+  }
 }

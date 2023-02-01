@@ -126,76 +126,78 @@ export default function CreateDog(){
 
 //------------------------------------------------Render-------------------------------------------------------
     return( 
-        <div className="containerAllCreateDog">
+        <>
             <NavBar />
-            <form className="containerForm" onSubmit={e => handleSubmit(e)}>
-            <h1>Create your own breed</h1>
-                <section className="containerInputs">
-                        <input type='text' name='name' value={input.name} onChange={e => handleChange(e)} placeholder='Insert name'/>
-                        {check.name && (
-                        <p className="errors">{check.name}</p>
-                        )}
-                        <input type='number' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)} placeholder='Insert a minimum height in cm'/>
-                        {check.heightMin && (
-                            <p className="errors">{check.heightMin}</p>
+            <div className="containerAllCreateDog">
+                <form className="containerForm" onSubmit={e => handleSubmit(e)}>
+                <h1>Create your own breed</h1>
+                    <section className="containerInputs">
+                            <input type='text' name='name' value={input.name} onChange={e => handleChange(e)} placeholder='Insert name'/>
+                            {check.name && (
+                            <p className="errors">{check.name}</p>
                             )}
-                        <input type='number' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)} placeholder='Insert a maximum height in cm'/>
-                        {check.heightMax && (
-                            <p className="errors">{check.heightMax}</p>
-                            )}
-                        <input type='number' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)} placeholder='Insert a minimum weight in kg'/>
-                        {check.weightMin && (
-                            <p className="errors">{check.weightMin}</p>
-                            )}
-                        <input type='number' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)} placeholder='Insert a maximum weight in kg'/>
-                        {check.weightMax && (
-                            <p className="errors">{check.weightMax}</p>
-                            )}
-                        <input type='text' name='lifeSpan' value={input.lifeSpan} onChange={e => handleChange(e) } placeholder='insert estimated life years'/>
-                        {check.lifeSpan && (
-                            <p className="errors">{check.lifeSpan}</p>
-                            )}
-                        <input type='text' name='image' value={input.image} onChange={e => handleChange(e)} placeholder='Insert a URL image'/>
-                        {check.image && (
-                            <p className="errors">{check.image}</p>
-                            )}
-                </section>
-                <section>
-                    <select className="select" name='temperaments' onChange={(e) => handleSelect(e)}>
-                        <option value='selected'>Temperaments</option>
-                        {allTemperaments?.sort(function (a, b) {
-                                if (a.name < b.name) return -1;
-                                if (a.name > b.name) return 1;
-                                return 0;
-                            }).map(temp => {
-                                    return (
-                                        <option key={temp.id} value={temp.name}>{temp.name}</option>
-                                    )
-                                })}
-                    </select>
-                </section>
-                <section className="containerTemps">
-                {input.temperament.map(e => (
-                    <ul className="tempsList">
-                        <li>
-                            <p>{e}<button type='reset' onClick={() => handleDelete(e)}> X </button></p>
-                        </li>
-                    </ul>
-                ))}
-                </section>
-                <section className="containerBtnForm">
-                    <button type='submit' id='btnSubmit'>
-                        Create breed
-                    </button>
-                    <Link to='/home'>
-                        <button id='btnCancel'>
-                            Cancel
+                            <input type='number' name='heightMin' value={input.heightMin} onChange={e => handleChange(e)} placeholder='Insert a minimum height in cm'/>
+                            {check.heightMin && (
+                                <p className="errors">{check.heightMin}</p>
+                                )}
+                            <input type='number' name='heightMax' value={input.heightMax} onChange={e => handleChange(e)} placeholder='Insert a maximum height in cm'/>
+                            {check.heightMax && (
+                                <p className="errors">{check.heightMax}</p>
+                                )}
+                            <input type='number' name='weightMin' value={input.weightMin} onChange={e => handleChange(e)} placeholder='Insert a minimum weight in kg'/>
+                            {check.weightMin && (
+                                <p className="errors">{check.weightMin}</p>
+                                )}
+                            <input type='number' name='weightMax' value={input.weightMax} onChange={e => handleChange(e)} placeholder='Insert a maximum weight in kg'/>
+                            {check.weightMax && (
+                                <p className="errors">{check.weightMax}</p>
+                                )}
+                            <input type='text' name='lifeSpan' value={input.lifeSpan} onChange={e => handleChange(e) } placeholder='insert estimated life years'/>
+                            {check.lifeSpan && (
+                                <p className="errors">{check.lifeSpan}</p>
+                                )}
+                            <input type='text' name='image' value={input.image} onChange={e => handleChange(e)} placeholder='Insert a URL image'/>
+                            {check.image && (
+                                <p className="errors">{check.image}</p>
+                                )}
+                    </section>
+                    <section>
+                        <select className="select" name='temperaments' onChange={(e) => handleSelect(e)}>
+                            <option value='selected'>Temperaments</option>
+                            {allTemperaments?.sort(function (a, b) {
+                                    if (a.name < b.name) return -1;
+                                    if (a.name > b.name) return 1;
+                                    return 0;
+                                }).map(temp => {
+                                        return (
+                                            <option key={temp.id} value={temp.name}>{temp.name}</option>
+                                        )
+                                    })}
+                        </select>
+                    </section>
+                    <section className="containerTemps">
+                    {input.temperament.map(e => (
+                        <ul className="tempsList">
+                            <li>
+                                <p>{e}<button type='reset' onClick={() => handleDelete(e)}> X </button></p>
+                            </li>
+                        </ul>
+                    ))}
+                    </section>
+                    <section className="containerBtnForm">
+                        <button type='submit' id='btnSubmit'>
+                            Create breed
                         </button>
-                    </Link>
-                </section>
-            </form>
+                        <Link to='/home'>
+                            <button id='btnCancel'>
+                                Cancel
+                            </button>
+                        </Link>
+                    </section>
+                </form>
+            </div>
             <Footer />
-        </div>
+        </>
     )
 
 

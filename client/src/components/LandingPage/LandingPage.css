@@ -1,11 +1,11 @@
-.containerLP{
+/* .containerLP{
     background-image: url('../../images/LandingPageIMG2.jpg');
     background-attachment: initial;
     position: absolute;
     width: 100vw;
     height: 100vh;
     overflow-y: hidden;
-}
+} */
 
 .position {
     float: left;
