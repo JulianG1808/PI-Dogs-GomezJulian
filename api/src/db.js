@@ -7,7 +7,6 @@ const path = require('path');
 //   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
 // } = process.env;
 
-const PORT = process.env.PORT || 3001
 const DB_HOST = process.env.DB_HOST || 'localhost'
 const DB_USER = process.env.DB_USER || 'postgres'
 const DB_PASSWORD = process.env.DB_PASSWORD || '203327'
@@ -20,7 +19,7 @@ let sequelize =
         database: DB_NAME,
         dialect: "postgres",
         host: DB_HOST,
-        port: 5432,
+        port: DB_PORT,
         username: DB_USER,
         password: DB_PASSWORD,
         pool: {
