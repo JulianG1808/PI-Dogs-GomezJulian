@@ -1,32 +1,33 @@
-.conteinerSearch input {
+.containerSearch input {
     transition: all 0.3s ease;
     border-radius: 5px;
     width: 200px;
     height: 35px;
     margin: 0 5px;
-    border: 5px brown;
+    border: 5px orangered;
     background-color: whitesmoke;
 }
 
-.conteinerSearch button{
+.containerSearch button{
     transition: all 0.3s ease;
     border-radius: 5px;
-    border: 5px brown;
-    color:brown;
+    border: 5px orangered;
+    color:orangered;
     background-color: antiquewhite;
     width: 70px;
     height: 35px;
-    
+    font-size: 14px;
+
 }
 
-.conteinerSearch button:hover{
+.containerSearch button:hover{
     border-radius: 5px;
     border-color: antiquewhite;
     color:antiquewhite;
-    background-color: brown;
+    background-color: orangered;
     cursor: pointer;
 }
 
-.conteinerSearch input:hover{
+.containerSearch input:hover{
     background-color: white;
 }

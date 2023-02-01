@@ -1,29 +1,13 @@
-.conteinerDog{
+.containerDog{
+    margin-top: 3.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.btnHome{
-    transition: all 0.3s ease;
-    background-color: antiquewhite;
-    color: brown;
-    border: 1px brown solid;
-    border-radius: 5px;
-    width: 100px;
-    height: 35px;
-    margin: 10px;
-}
-
-.btnHome:hover{
-    background-color: brown;
-    color: antiquewhite;
-    border-color: antiquewhite;
-    cursor: pointer;
+    margin-bottom: 10rem;
 }
 
 .Dog{
-    background-color: antiquewhite;
+    background-color: bisque;
     border-radius: 10px;
     padding: 5px 0;
     width: 400px;
@@ -36,4 +20,22 @@
 
 .gifLoad {
     margin-top: 5vh;
+}
+
+.containerBtn button{
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    width: 100px;
+    height: 35px;
+    background-color: whitesmoke;
+    color: orangered;
+    border: orangered;
+    margin: 0.3rem;
+    cursor: pointer;
+}
+
+.containerBtn button:hover{
+    background-color: orangered;
+    color: whitesmoke;
+    border: whitesmoke;
 }

@@ -1,7 +1,7 @@
 nav {
     display: flex;
     justify-content: space-around;
-    margin: 10px;
+    /* margin: 10px; */
 }
         
 .pagination {
@@ -11,8 +11,10 @@ nav {
     display: flex;
 }
         
-.pagination li {
-    margin: 0 1px;
+.pagination button {
+    margin-left: .1rem;
+    margin-right: .1rem;
+    font-size: 14px;
 }
 
 .inactive, .active{
@@ -25,17 +27,48 @@ nav {
 
 .inactive{
     background-color: bisque;
-    color: brown;
+    color: orangered;
 }
 
 .active{
-    background-color: brown;
+    background-color: orangered;
     color: black;
 }
 
 .inactive:hover, .active:hover{
-    background-color: brown;
+    background-color: orangered;
     color: bisque;
     cursor: pointer;
 }
 
+.functions {
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    border: none;
+    width: 30px;
+    height: 35px;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.functions:hover {
+    background-color: orange;
+    color: bisque;
+}
+
+.functions.more {
+    align-items: flex-end;
+    padding-bottom: .3rem;
+}
+
+.functions.arrowNext {
+    margin-left: 0.5rem;
+    align-items: center;
+}
+
+.functions.arrowPrev {
+    margin-right: 0.5rem;
+    align-items: center;
+}

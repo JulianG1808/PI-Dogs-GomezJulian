@@ -8,11 +8,11 @@ import './LandingPage.css'
 export default function LandingPage() {
 //-----------------------------------------------Render---------------------------------------------------
     return(
-        <div className='conteinerLP'>
+        <div className='containerLP'>
             <div class='position'>
-                <h1>Bienvenido a mi PI-DOGS</h1>
+                <h1>Welcome to the DOGSAPP</h1>
                     <Link to='/home'>
-                        <button>Ir al inicio</button>
+                        <button>Start</button>
                     </Link>
             </div>
         </div>
